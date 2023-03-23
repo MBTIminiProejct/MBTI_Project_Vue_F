@@ -560,7 +560,7 @@
       cmp.$store.commit("setCharacterInfo",JSON.parse(response.data.characterInfo));
       cmp.$store.commit("setUserInfo",JSON.parse(response.data.userInfo));
 
-      axios.get('http://localhost:8080/springmbti/survey/partfour/sbuttonfour/user', {
+      axios.get('http://192.168.0.195:8085/springmbti/survey/partfour/sbuttonfour/user', {
         params: {
             qone: 1,
             mbti: cmp.$store.getters.getUserMbti

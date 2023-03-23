@@ -56,7 +56,7 @@ export default {
       // cmd.$store.commit("setAnotherUserInfo",response.data['mbtiImg'])
       cmd.$store.commit("setAnotherUserInfo",response.data)
       //let cmc =this;
-        axios.get('http://localhost:8080/springmbti/userpage/readMbtiPage' , {
+        axios.get('http://192.168.0.195:8085/springmbti/userpage/readMbtiPage' , {
             params: {
               index: cmd.index
             }

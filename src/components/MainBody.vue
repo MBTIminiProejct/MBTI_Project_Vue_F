@@ -1,25 +1,19 @@
 <template>
-    <div class="mainbody" style="font-family:verdana;">
-        <img src='https://i.imgur.com/A4ER5es.gif'><br><br>
-            <!-- <template v-if="this.$store.getters.isExist>1">
+    <div>
+        <h3>메인화면</h3><br><br>
+        <img src='https://i.imgur.com/oMQzKAv.jpg'><br><br>
+             <template v-if="this.$store.getters.isExist>1">
                 <button id="clicktwo"><router-link to="/mypage">마이페이지</router-link></button>
                 <form :disabled="isDisabled">
                     <input id="clickone" type="submit" value="설문조사"><br>
                 </form>
             </template>
-            <template v-else> -->
-
-                    <!--<router-link to="/survey/partone"><input id="clickone" type="submit" value="설문조사"><br></router-link>-->
-                                    
-                    <button class="btn-primary" @click="showModal = true">설문조사</button>
-                        <!-- <Modal v-if="showModal" @close-modal="showModal = false"> -->
-                    <!-- <button @click="$emit('close-modal')">Close Modal</button> -->
-                    <!-- </Modal>                <button disabled="disabled" class="btn-secondary" id="clickthree">캐릭터 삭제하기</button><br>
- -->
-                <!-- <button class="btn-primary" disabled="disabled">마이페이지</button><br> -->
-                <button class="btn-primary"><router-link to="/mypage">마이페이지</router-link></button>
-            <!-- </template> -->
-            캐릭터 num : {{this.$store.getters.getUserCharacterNum}}
+            <template v-else>
+                <button class="btn-primary" @click="showModal = true">설문조사</button>
+                <Modal v-if="showModal" @close-modal="showModal = false">
+                </Modal>                
+                <button class="btn-primary" disabled="disabled">마이페이지</button><br>
+            </template>
             <!-- <button class="btn-secondary" id="deleteUser" @click="deleteUser()">회원탈퇴</button> -->
           <vue-confirm-dialog></vue-confirm-dialog>
         <router-view></router-view>
@@ -27,7 +21,7 @@
 </template>
 <script>
 import Modal from '@/components/SurveyModal.vue';
-
+import axios from 'axios'
 
 export default{
     
@@ -169,6 +163,7 @@ img{
   #clickthree {
     margin: 10px;
   }
+
 
 </style>
 
