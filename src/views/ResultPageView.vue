@@ -102,4 +102,7 @@ export default {
 		margin-left: auto;
 		margin-right: auto;
 	}
+    li {
+        text-align: left;
+    }
 </style>

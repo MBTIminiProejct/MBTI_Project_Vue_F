@@ -1,6 +1,5 @@
 <template>
-    <div>
-        <h3>메인화면</h3><br><br>
+    <div class="mainbody">
         <img src='https://i.imgur.com/oMQzKAv.jpg'><br><br>
              <template v-if="this.$store.getters.isExist>1">
                 <button id="clicktwo"><router-link to="/mypage">마이페이지</router-link></button>
@@ -18,7 +17,7 @@
 </template>
 <script>
 import Modal from '@/components/SurveyModal.vue';
-import axios from 'axios'
+
 
 export default{
     
@@ -99,15 +98,18 @@ export default{
 </script>
 <style scoped>
 .mainbody {
-    position : relative;
+    padding-top: 15%;
+    padding-right: 15%;
+    padding-bottom: 0%;
+    padding-left: 15%;
+
 }
 
 img{
-    padding-top: 35%;
-    width: 40%;
-    height:50%;
-    margin: auto;
-    display: block;
+
+    height:60%;
+    max-width: 500px;
+    max-height: 500px;
 
 }
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap');

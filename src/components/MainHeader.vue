@@ -1,5 +1,5 @@
 <template>
-    <div class="mainheader"> 
+    <div class="mainheader" style="font-family:verdana;"> 
         <h2>MBeanTI : 콩들의 대결</h2>
         <p>모두모두 덤벼라!</p>
     </div> 
@@ -10,12 +10,11 @@
 .mainheader {
     background-color: #00008b;
     color: white;
-    width: 100%;
-    position : fixed;
-    opacity:0.8;
+    padding-bottom: 3px;
 }
 h2{
     color: white;
+    font-size: 30px;
 }
 div.textbox1{
   color: white;

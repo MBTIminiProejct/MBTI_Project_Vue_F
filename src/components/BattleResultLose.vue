@@ -33,5 +33,11 @@ img{
     width: 300px;
     height: 300px;
 }
+div.battleresultlose {
+  text-align: left;
+  }
+h3 {
+	font-size: 23px;
+}
 </style>
   

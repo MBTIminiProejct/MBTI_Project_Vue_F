@@ -1,6 +1,6 @@
 <template>
   <div class="mypage">
-    <h1 class="title">This is Mypage</h1>
+    <h1 class="title">마이페이지</h1>
     <div class="user-profile">
       <img :src="this.$store.state.mbtiresult.mbtiimgurl">
     </div>
@@ -211,6 +211,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  text-align: left;
 }
   
   .user-profile img {

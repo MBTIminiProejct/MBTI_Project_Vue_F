@@ -1,5 +1,5 @@
 <template>
-	<div class="mychharacter">
+	<div class="mycharacter">
 		<h1>내 캐릭터</h1>
 		<h2>HP : {{$store.state.characterinfo.characterHP}}</h2>
 		<h2>물리공격력 : {{$store.state.characterinfo.characterAD}}</h2>
@@ -29,6 +29,12 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+div.mycharacter {
+	text-align: left;
+}
+h1 {
+	font-size: 30px;
+	font-weight: bold !important;
+}
 </style>
   

@@ -56,8 +56,8 @@
      
      <div class="box8" style="font-family:verdana; text-align: center">
      <!--<form action="/springmbti/survey/surveytwo" method="post">-->
-        <router-link to="/survey/parttwo"><button id="back3" @click="backbuttonthree()" >뒤로가기</button></router-link>
-        <router-link to="/survey/partfour"><button id="next3" @click="sbuttonthree()" >제출</button></router-link>
+        <router-link to="/survey/parttwo"><button class="btn-primary" id="back3" @click="backbuttonthree()" >뒤로가기</button></router-link>
+        <router-link to="/survey/partfour"><button class="btn-primary" id="next3" @click="sbuttonthree()" >제출</button></router-link>
          <!--<button id="next1" type="submit" @click="sbuttonone">제출</button>-->
      </div>	
      
@@ -551,6 +551,23 @@
  </script>  
  
  <style scoped>
+.btn-primary {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.2s;
+}
  body {
         font-family: 'Arial', sans-serif;
         margin: 0;

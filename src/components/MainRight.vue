@@ -98,6 +98,7 @@ img{
   height: 150px;
 }
 li{
+  font-size: 15px;
   text-align: left;
 }
 </style>

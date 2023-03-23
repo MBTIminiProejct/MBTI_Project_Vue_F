@@ -11,7 +11,7 @@
 			<option value="도서관">도서관</option>
 			<option value="꿈속">꿈속</option>
 		</select>
-	<button @click="battle">싸우자!</button>
+	<button class="btn-primary" @click="battle">싸우자!</button>
 	</div>
   </template>
   
@@ -65,6 +65,23 @@ import axios from 'axios'
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.btn-primary {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.2s;
+}
   img {
     border: 1px solid #d8d8d8;
     width: 30%;
