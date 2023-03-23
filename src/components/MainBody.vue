@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h3>메인화면</h3><br><br>
+        <h3>메인화면</h3>
+        <div class="center">
         <img src='https://i.imgur.com/oMQzKAv.jpg'><br><br>
              <template v-if="this.$store.getters.isExist>1">
                 <button id="clicktwo"><router-link to="/mypage">마이페이지</router-link></button>
@@ -11,8 +12,8 @@
                 </Modal>                
                 <button class="btn-primary" disabled="disabled">마이페이지</button><br>
             </template>
-            <!-- <button class="btn-secondary" id="deleteUser" @click="deleteUser()">회원탈퇴</button> -->
-          <vue-confirm-dialog></vue-confirm-dialog>
+        </div>
+        <vue-confirm-dialog></vue-confirm-dialog>
         <router-view></router-view>
     </div>
 </template>
@@ -103,9 +104,9 @@ export default{
 }
 
 img{
-    padding-top: 35%;
+    /* padding-top: 35%; */
     width: 40%;
-    height:50%;
+    height:30%;
     margin: auto;
     display: block;
 

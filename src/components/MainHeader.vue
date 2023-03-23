@@ -11,7 +11,7 @@
     background-color: #00008b;
     color: white;
     width: 100%;
-    position : fixed;
+    /* position : fixed; */
     opacity:0.8;
 }
 h2{

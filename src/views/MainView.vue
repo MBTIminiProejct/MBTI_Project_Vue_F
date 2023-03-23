@@ -1,14 +1,16 @@
 <template>
+  <div>
+  <MainHeader></MainHeader>
   <div class="main" style="font-family:verdana; text-align: center">
-    <div class="top"><MainHeader></MainHeader></div>
+    
       <div class="right"><MainRight></MainRight></div>
         <div class="left"><MainBody></MainBody></div>
-          <div class="bottom"><MainFooter></MainFooter></div>
-
           <div class="btnbox1">
           <!-- <button @click="goResultPage()">결과페이지로 이동</button><br><br> -->
        <a href="https://kauth.kakao.com/oauth/logout?client_id=26c4c3e8460d88a695130b78307910f4&logout_redirect_uri=http://192.168.0.195/login" @click="logout()">로그아웃</a>
    </div>
+  </div>
+  <div ><MainFooter></MainFooter></div>
   </div>
 </template>
 
@@ -49,12 +51,7 @@ export default {
       this.$router.push({
                   name : "result"
       })
-    },
-    // goMyPage(){
-    //   this.$router.push({
-    //               name : "mypage"
-    //   })
-    // }
+    }
   }
 }
 </script>
