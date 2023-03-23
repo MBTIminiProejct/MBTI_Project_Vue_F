@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 id="ready1">대결 준비 중...</h2>
+        <h2 id="ready1">뚱땅 뚱땅 대결중...</h2>
         <Loading></Loading>
     </div>
 </template>

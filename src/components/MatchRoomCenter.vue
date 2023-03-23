@@ -1,16 +1,17 @@
 <template>
 	<div align="center">
+		<img :src= this.imgurl>
 		<br>
 		장소를 고르세요
 		<br>
 		<select v-model="battleField" @change="changeSelect">
-			<option selected value="기본">기본</option>
+			<option value="기본">기본</option>
 			<option value="놀이동산">놀이동산</option>
 			<option value="계획없이 떠나게된 여행">계획없이 떠나게된 여행</option>
 			<option value="도서관">도서관</option>
 			<option value="꿈속">꿈속</option>
 		</select>
-	<router-link to="/loading"><button @click="battle">싸우자!</button></router-link>
+	<button @click="battle">싸우자!</button>
 	</div>
   </template>
   
@@ -22,6 +23,7 @@ import axios from 'axios'
 	data() {
 		return {
 			battleField : '',
+			imgurl : ''
 		}
 	},
 	methods: {
@@ -35,21 +37,27 @@ import axios from 'axios'
 			} else if (this.battleField == "꿈속") {
 				this.imgurl = 'http://k.kakaocdn.net/dn/bbwYsm/btrVEp4ADkw/PMaRKTYxgjH8qdOlkCY4qK/img_640x640.jpg'
 			} else {
-				this.imgurl = '../assets/01.jpg'
+				this.imgurl = 'https://i.imgur.com/y4HuMAZ.jpeg'
 			}
 		},
 		battle() {
-			axios.get(this._baseUrl + "battle", {
-				params : {
-					battleField : this.battleField
-				}
-			}).then(result=> {
-				console.log(result.data);
-				this.$store.commit("setBattleLogInfo", result.data)
-				this.$router.push({
-					name : "battleresult"
+			if (this.imgurl == '') {
+				alert("싸울장소를 선택해주세요!")
+			} else {
+				axios.get(this._baseUrl + "battle", {
+					params : {
+						battleField : this.battleField,
+						userNum : this.$store.getters.getMyNum,
+						battleUserNum : this.$store.getters.getBattleUser
+					}
+				}).then(result=> {
+					console.log(result.data);
+					this.$store.commit("setBattleLogInfo", result.data)
+					this.$router.push({
+						name : "loading"
+					})
 				})
-			})
+			}
 		},
 		}
 }

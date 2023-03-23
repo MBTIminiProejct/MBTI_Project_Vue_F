@@ -32,7 +32,6 @@ const store = new Vuex.Store({
         isLogin: function(state) {
             return state.userinfo.userNum >= 1;
         },
-
         isExist: function(state) {
             return state.userinfo.userCharacter;
         },
@@ -53,10 +52,18 @@ const store = new Vuex.Store({
         },
         getMBTIImg: function(state) {
             return state.mbtianotheruserimg.mbtiimgurl;
-
+        },
+        getUserAccept: function(state) {
+            return state.userinfo.userAcceptance;
+        },
+        getBattleUser: function(state) {
+            return state.competionuserinfo.userNum
         },
         getUserSpeed:function(state){
             return state.userSpeed;
+        },
+        getOtherUserNum: function(state) {
+            return state.anotheruserinfo.userNum
         }
     },
     mutations: {
@@ -105,6 +112,9 @@ const store = new Vuex.Store({
         },
         setCharacterNum(state, num) {
             state.userinfo.usercharacter = num;
+        },
+        setUserAcceptChange(state, String) {
+            state.userinfo.useracceptance = String;
         },
         
 

@@ -1,7 +1,7 @@
 <template>
   <div id="app"> 
-    <MainFooter v-if="isLogIn"/>
-    <MainHeader v-if="isLogin"/>
+    <MainFooter v-if="$store.commit.isLogin"/>
+    <MainHeader v-if="$store.commit.isLogin"/>
     <router-view/>
      
   </div>

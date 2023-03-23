@@ -40,7 +40,7 @@
         </div>
         <div class="user-info-row">
           <div class="user-info-label">대결허용 :</div>
-          <div class="user-info-value">{{ $store.state.userinfo.userAcceptance }}</div>
+          <div class="user-info-value" id="acc">{{ $store.state.userinfo.userAcceptance }}</div>
         </div>
       </div>
       <div class="battle-info">
@@ -70,6 +70,11 @@
 
   export default {
 	name: 'Mypage',
+	data() {
+		return {
+			Accept : "ㅅ"
+		}
+	},
 	methods:{
 		perpBattle() {
 			if (this.battleUserNum == this.$store.getters.getMyNum) {
@@ -81,7 +86,7 @@
         			}
 				})
 				.then(result=> {
-					if (result.data == "nonUser") {
+					if (result.data.nonUser == "nonUser") {
 						alert("존재하지않는 유저 번호입니다.")
 					} else {
 						this.$store.commit("setCompetionUserInfo",JSON.parse(result.data.competionUserInfo));
@@ -93,7 +98,7 @@
 				})
 				.catch(function () {
 					alert("실패")
-					console.log("실패");
+					console.log(result.data);
 				});
 			} else {
 				alert("대결상대의 번호를 입력해주세요!! \n 1 ~ 1000000 숫자만 입력가능합니다")
@@ -132,47 +137,61 @@
                 }
             ) 
         },
-        deleteUser(){
-            this.$confirm(
-                {
-                    message:'"MBTI 싸우자"에서 정말 탈퇴하시겠습니까?',
-                    button:{
-                        no : '취소',
-                        yes: '탈퇴'
-                    },
-                callback:confirm=>{
-                    if(confirm){
-                         this.$axios.delete(this._baseUrl + "mypage/deleteUser",{
-                                data:{
-                                    userEmail:this.$store.getters.getUserEmail
-                                }
-                            })
-                            .then(result=> {
-                                console.log(result.data);
-                                localStorage.removeItem('vuex');
-                                location.reload();
-                            })
-                            .catch(function(){
-                                console.log("회원 탈퇴 연결 실패");
-                            })
-                        }else{
-                            return //이전화면 돌아가기
-                        }
-                }
-                }
-            )
+      deleteUser(){
+          this.$confirm(
+              {
+                  message:'"MBTI 싸우자"에서 정말 탈퇴하시겠습니까?',
+                  button:{
+                      no : '취소',
+                      yes: '탈퇴'
+                  },
+              callback:confirm=>{
+                  if(confirm){
+                        this.$axios.delete(this._baseUrl + "mypage/deleteUser",{
+                              data:{
+                                  userEmail:this.$store.getters.getUserEmail
+                              }
+                          })
+                          .then(result=> {
+                              console.log(result.data);
+                              localStorage.removeItem('vuex');
+                              location.reload();
+                          })
+                          .catch(function(){
+                              console.log("회원 탈퇴 연결 실패");
+                          })
+                      }else{
+                          return //이전화면 돌아가기
+                      }
+              }
+              }
+          )
                     },
         changeAccpet() {
           axios.get(this._baseUrl + "mypage/useraccpet", {
-              })
+                params : {
+                  userNum : this.$store.getters.getMyNum
+                }
+				      })
               .then(result=> {
                 alert("변경 완료")
+                if (this.$store.getters.getUserAccept == "대결불가") {
+                  this.$store.commit("setUserAcceptChange", "대결허용")
+                  this.$router.push({
+								    name : "mypage"
+						      })
+                } else {
+                  this.$store.commit("setUserAcceptChange", "대걸불가")
+                  this.$router.push({
+								    name : "mypage"
+						      })
+                }
               })
               .catch(function () {
                 alert("변경실패 관리자에게 문의해보세요")
               });
               },
-                
+            
     },
         
 	data() {

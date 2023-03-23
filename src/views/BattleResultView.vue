@@ -21,18 +21,6 @@ components: {
 	BattleResultLose,
 	MainFooter
 },
-methods: {
-	test() {
-		alert("test")
-	},
-	loading() {
-		const img = new Image;
-		img.src = '../assests/로딩.gif'
-		img.addEventListener('load', function () {
-			setTimeout(test, 2000);
-		})
-	}
-}
 }
 </script>
 

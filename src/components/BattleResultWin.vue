@@ -17,11 +17,11 @@ name: 'BattleResultWin',
 // 		battleLog 
 // 	}
 // },
-computed: {
-	battleLog() {
-		return this.$store.state.battleloginfo.blog.replaceAll("\n", "<br/>")
-	}
-}
+// computed: {
+// 	battleLog() {
+// 		return this.$store.state.battleloginfo.blog.replaceAll("\n", "<br/>")
+// 	}
+// }
 }
 
 </script>

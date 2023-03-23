@@ -10,12 +10,13 @@
             <h2>점수 : {{$store.state.anotheruserinfo.userPoint}}</h2>
             <h2>아이템 : {{$store.state.anotheruserinfo.userItem}}</h2>
             <h2>대결허용 : {{$store.state.anotheruserinfo.userAcceptance}}</h2>
-            <router-link to="/matchroom"><button>대결신청</button></router-link>
+            <button @click="perpBattle">싸우자!</button>
         </ul>
     </div> 
 </template>
 <script>
 import {mapState} from 'vuex';
+import axios from 'axios';
 export default {
   name:'UserPageBody',
   computed:{
@@ -23,6 +24,26 @@ export default {
             profile:state => state.anotheruserinfo.userProfile
         })
     },
+    methods:{
+		perpBattle() {
+			axios.get(this._baseUrl + "mypage/battleuser", {
+        			params : {
+          			battleUserNum : this.$store.getters.getOtherUserNum
+        			}
+				})
+				.then(result=> {
+						this.$store.commit("setCompetionUserInfo",JSON.parse(result.data.competionUserInfo));
+						this.$store.commit("setCompetionCharacterInfo",JSON.parse(result.data.competionCharacterInfo));
+						this.$router.push({
+								name : "matchroom"
+						})
+				})
+				.catch(function () {
+					alert("실패")
+					console.log(result.data);
+				});
+		},
+  }
   
 }
 </script>
