@@ -64,6 +64,9 @@ const store = new Vuex.Store({
         },
         getOtherUserNum: function(state) {
             return state.anotheruserinfo.userNum
+        },
+        getBattleUserAccept: function(state) {
+            return state.competionuserinfo.userAcceptance;
         }
     },
     mutations: {

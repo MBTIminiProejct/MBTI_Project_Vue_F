@@ -40,7 +40,7 @@
         </div>
         <div class="user-info-row">
           <div class="user-info-label">대결허용 :</div>
-          <div class="user-info-value" id="acc">{{ $store.state.userinfo.userAcceptance }}</div>
+          <div class="user-info-value">{{ $store.state.userinfo.userAcceptance }}</div>
         </div>
       </div>
       <div class="battle-info">
@@ -70,11 +70,6 @@
 
   export default {
 	name: 'Mypage',
-	data() {
-		return {
-			Accept : "ㅅ"
-		}
-	},
 	methods:{
 		perpBattle() {
 			if (this.battleUserNum == this.$store.getters.getMyNum) {
@@ -91,9 +86,14 @@
 					} else {
 						this.$store.commit("setCompetionUserInfo",JSON.parse(result.data.competionUserInfo));
 						this.$store.commit("setCompetionCharacterInfo",JSON.parse(result.data.competionCharacterInfo));
-						this.$router.push({
+            console.log(this.$store.getters.getBattleUserAccept)
+            if (this.$store.getters.getBattleUserAccept == "대결허용") {
+              this.$router.push({
 								name : "matchroom"
 						})
+            } else {
+              alert("해당유저의 대결허용이 OFF 상태입니다")
+            }
 					}
 				})
 				.catch(function () {
@@ -175,17 +175,9 @@
 				      })
               .then(result=> {
                 alert("변경 완료")
-                if (this.$store.getters.getUserAccept == "대결불가") {
-                  this.$store.commit("setUserAcceptChange", "대결허용")
-                  this.$router.push({
-								    name : "mypage"
-						      })
-                } else {
-                  this.$store.commit("setUserAcceptChange", "대걸불가")
-                  this.$router.push({
-								    name : "mypage"
-						      })
-                }
+                console.log(result.data)
+                this.$store.commit("setUserInfo", result.data)
+                location.reload();
               })
               .catch(function () {
                 alert("변경실패 관리자에게 문의해보세요")

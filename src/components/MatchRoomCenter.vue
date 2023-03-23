@@ -41,19 +41,20 @@ import axios from 'axios'
 			}
 		},
 		battle() {
-			if (this.imgurl == '') {
+			let tmp = this;
+			if (tmp.imgurl == '') {
 				alert("싸울장소를 선택해주세요!")
 			} else {
-				axios.get(this._baseUrl + "battle", {
+				axios.get(tmp._baseUrl + "battle", {
 					params : {
-						battleField : this.battleField,
-						userNum : this.$store.getters.getMyNum,
-						battleUserNum : this.$store.getters.getBattleUser
+						battleField : tmp.battleField,
+						userNum : tmp.$store.getters.getMyNum,
+						battleUserNum : tmp.$store.getters.getBattleUser
 					}
 				}).then(result=> {
 					console.log(result.data);
-					this.$store.commit("setBattleLogInfo", result.data)
-					this.$router.push({
+					tmp.$store.commit("setBattleLogInfo", result.data)
+					tmp.$router.push({
 						name : "loading"
 					})
 				})

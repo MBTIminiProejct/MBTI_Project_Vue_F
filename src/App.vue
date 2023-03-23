@@ -1,7 +1,6 @@
 <template>
   <div id="app"> 
-    <MainFooter v-if="$store.commit.isLogin"/>
-    <MainHeader v-if="$store.commit.isLogin"/>
+
     <router-view/>
      
   </div>
@@ -18,7 +17,8 @@ export default {
   },
   computed: {
     isLogIn(){
-     const fixedViews = ['MainView', 'ResultPageView', 'MyPageView', 'SurveyViewOne', 'SurveyViewTwo', 'SurveyViewThree', 'SurveyViewFour', 'MatchRoomView', 'BattleResultView', 'UserPageView', 'LoadingView'];
+     const fixedViews = ['MainView'];
+    //  'ResultPageView', 'MyPageView', 'SurveyViewOne', 'SurveyViewTwo', 'SurveyViewThree', 'SurveyViewFour', 'MatchRoomView', 'BattleResultView', 'UserPageView', 'LoadingView
       return fixedViews.includes(this.$route.name);
     }
   }
