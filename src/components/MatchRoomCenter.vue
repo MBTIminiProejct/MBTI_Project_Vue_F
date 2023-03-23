@@ -1,6 +1,5 @@
 <template>
 	<div align="center">
-		<img v-bind:src='this.imgurl' id="img">
 		<br>
 		장소를 고르세요
 		<br>
@@ -23,8 +22,6 @@ import axios from 'axios'
 	data() {
 		return {
 			battleField : '',
-			imgurl : '@/src/assets/01.jpg',
-			show : true
 		}
 	},
 	methods: {

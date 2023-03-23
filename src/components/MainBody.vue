@@ -1,8 +1,7 @@
 <template>
     <div>
-        <h3>메인화면</h3><br><br>
         <img src='../img/01.jpg'><br><br>
-             <template v-if="this.$store.getters.isExist<0">>
+             <template v-if="this.$store.getters.isExist > 1">
                 <button @click="deleteCharacter()">캐릭터 삭제하기</button>
                   <button id="clicktwo"><router-link to="/mypage">마이페이지</router-link></button>
                     <form :disabled="isDisabled">

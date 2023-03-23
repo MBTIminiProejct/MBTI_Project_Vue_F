@@ -65,8 +65,7 @@
 		perpBattle() {
 			if (this.battleUserNum == this.$store.getters.getMyNum) {
 				alert("나 외의 상대번호를 입력해주세요");
-			}
-			if (this.battleUserNum > 0 && this.battleUserNum < 1000000) {
+			} else if (this.battleUserNum > 0 && this.battleUserNum < 1000000) {
 				axios.get(this._baseUrl + "mypage/battleuser", {
         			params : {
           			battleUserNum : this.battleUserNum
@@ -76,17 +75,10 @@
 					if (result.data == "nonUser") {
 						alert("존재하지않는 유저 번호입니다.")
 					} else {
-						this.$store.commit("setCompetionUserInfo",result.data);
-						axios.get(this._baseUrl + "mypage/battlecharacter", {
-							params : {
-								battleUserNum : this.battleUserNum
-							}
-						}).then(result=> {
-							console.log(result.data);
-							this.$store.commit("setCompetionCharacterInfo",result.data);
-							this.$router.push({
+						this.$store.commit("setCompetionUserInfo",JSON.parse(result.data.competionUserInfo));
+						this.$store.commit("setCompetionCharacterInfo",JSON.parse(result.data.competionCharacterInfo));
+						this.$router.push({
 								name : "matchroom"
-							})
 						})
 					}
 				})

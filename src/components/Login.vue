@@ -1,5 +1,12 @@
 <template>
   <div class="hello">
+    <div class="box1" style="font-family:verdana; text-align: center"> 
+		  <h2>나만의  MBTI 캐릭터 만들기</h2>
+		  <h3 style="font-family:courier">모두 덤벼라!</h3>
+		  <h1>MBTI 미니 대전</h1>
+	  </div>
+    <img class="main" src="https://i.imgur.com/y4HuMAZ.jpeg">
+    <br>
     <a @click="kakaoLogin()">
       <img src="../assets/kakao_login_medium_narrow.png"
         width="200">
@@ -66,7 +73,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
+  img.main {
+    border: 1px solid #d8d8d8;
+    width: 45%;
+    margin: 45px;
+    /* box-shadow: 0px .5px 1px #d8d8d8; */
+  }
+/* h3 {
   margin: 40px 0 0;
 }
 ul {
@@ -80,5 +93,5 @@ li {
 a {
   color: #42b983;
 }
-div{ width: 200px; height:40px; background-color:#fdd101; color:white; display:flex; align-items: center; justify-content: center; cursor:pointer; }
+div{ width: 200px; height:40px; background-color:#fdd101; color:white; display:flex; align-items: center; justify-content: center; cursor:pointer; } */
 </style>

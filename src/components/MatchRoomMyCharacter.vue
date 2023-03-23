@@ -19,21 +19,6 @@
 
   export default {
 	name: 'MyCharacter',
-	// methods:{
-	// 	perpBattle() {
-    //   	axios.get(this._baseUrl + "battle", {
-    //     	params : {
-	// 			battleField : this.battleField
-    //     	}
-    //   	})
-    //   	.then(result=> {
-	// 		alert("test");
-	// 	})
-	// 	.catch(function () {
-	// 				console.log("실패");
-	// 	});
-	// 	}
-    // },
 	data() {
     	return {
 			battleField : ''

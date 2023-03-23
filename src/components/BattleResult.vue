@@ -13,17 +13,12 @@
 <script>
 
 export default {
-name: 'BattleResult',
-// data() {
-// 	return {
-// 		battleLog 
-// 	}
-// },
-computed: {
-	battleLog() {
-		return this.$store.state.battleloginfo.blog.replaceAll("\n", "<br/>")
+	name: 'BattleResult',
+	computed: {
+		battleLog() {
+			return this.$store.state.battleloginfo.blog.replaceAll("\n", "<br/>")
+		}
 	}
-}
 }
 
 </script>
