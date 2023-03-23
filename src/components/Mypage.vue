@@ -60,6 +60,7 @@
       <button class="btn-secondary" @click="deleteCharacter()" style="margin-right: 16px;">캐릭터 삭제하기</button>
       <br>
       <button class="btn-secondary" id="deleteUser" @click="deleteUser()">회원탈퇴</button>
+    <vue-confirm-dialog></vue-confirm-dialog>
     </div>
   </div>
 </template>
@@ -109,12 +110,15 @@
                     callback:confirm=>{
                         if(confirm){
                             this.$axios.delete(this._baseUrl + "mypage/character",{
-                                params : {
+                                data : {
                                     userCharacterNum : this.$store.getters.getUserCharacterNum
                                     }
                             })
                             .then(result=> {
-                                alter("성공")
+                                alert(result.data);
+                                localStorage.removeItem('vuex');
+                                this.$store.commit("setCharacterNum",1);
+                                this.$router.push({name:"main"});
                             })
                             .catch(function(){
                                 console.log("캐릭터 삭제 연결 실패");

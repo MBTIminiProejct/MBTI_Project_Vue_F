@@ -33,7 +33,7 @@ const store = new Vuex.Store({
         },
 
         isExist: function(state) {
-            return state.characterinfo.characterNum;
+            return state.userinfo.characterNum;
         },
         getUserEmail: function(state) {
             return state.userinfo.userEmail;
@@ -95,6 +95,9 @@ const store = new Vuex.Store({
         },
         setMbtiAnotherUserImg(state, list) {
             state.mbtianotheruserimg = list;
+        },
+        setCharacterNum(state, num) {
+            state.userinfo.usercharacter = num;
         }
 
     },
