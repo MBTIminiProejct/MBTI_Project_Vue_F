@@ -56,8 +56,8 @@
      
      <div class="box8" style="font-family:verdana; text-align: center">
      <!--<form action="/springmbti/survey/surveytwo" method="post">-->
-      
-       <router-link to="/result"><button id="next4" @click="sbuttonfour" >제출</button></router-link>
+    <router-link to="/survey/partthree"><button id="back4" @click="backbuttonfour()" >뒤로가기</button></router-link> 
+    <router-link to="/result"><button id="next4" @click="sbuttonfour" >제출</button></router-link>
          <!--<button id="next1" type="submit" @click="sbuttonone">제출</button>-->
      </div>	
      
