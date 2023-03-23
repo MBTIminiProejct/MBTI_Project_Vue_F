@@ -1,7 +1,8 @@
 <template>
     <div>
-        <img src='../img/01.jpg'><br><br>
-             <template v-if="this.$store.getters.isExist > 1">
+        <h3>메인화면</h3><br><br>
+        <img src='https://i.imgur.com/oMQzKAv.jpg'><br><br>
+             <template v-if="this.$store.getters.isExist>1">
                 <button @click="deleteCharacter()">캐릭터 삭제하기</button>
                   <button id="clicktwo"><router-link to="/mypage">마이페이지</router-link></button>
                     <form :disabled="isDisabled">
@@ -18,7 +19,7 @@
                 <button disabled="disabled">마이페이지</button><br>
             </template>
             <button id="deleteUser" @click="deleteUser()">회원탈퇴</button>
-          <vue-confirm-dialog></vue-confirm-dialog>
+        <vue-confirm-dialog></vue-confirm-dialog>
         <router-view></router-view>
     </div>
 </template>
@@ -52,7 +53,7 @@ export default{
                     },
                     callback:confirm=>{
                         if(confirm){
-                            $axios.delete(this._baseUrl + "mypage/character",{
+                            this.$axios.delete(this._baseUrl + "mypage/character",{
                                 params : {
                                     userCharacterNum : this.$store.getters.getUserCharacterNum
                                     }
@@ -80,7 +81,7 @@ export default{
                     },
                     callback:confirm=>{
                         if(confirm){
-                            $axios.delete(this._baseUrl + "mypage/deleteUser",{
+                            this.$axios.delete(this._baseUrl + "mypage/deleteUser",{
                                 data:{
                                     userEmail:this.$store.getters.getUserEmail
                                 }

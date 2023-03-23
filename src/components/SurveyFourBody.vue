@@ -539,12 +539,12 @@
        var values = Object.values(data);
       cmp.$store.commit("setCharacterInfo",response.data);
 
-      axios.get('http://localhost:8080/springmbti/survey/partfour/sbuttonfour/user', {
+      axios.get('http://192.168.0.195:8085/springmbti/survey/partfour/sbuttonfour/user', {
         params: {
             one: 1
         }
-    })
-    .then(function (response) { 
+      })
+      .then(function (response) { 
       
       cmp.$store.commit("setUserInfo",JSON.parse(response.data.userInfo));
       cmp.$store.commit("setMBTIResult",JSON.parse(response.data.mbtiInfo));
@@ -556,6 +556,7 @@
  
    }).catch(function (error) {
     console.log(error);
+    console.log("에러가 발생함");
    })
    },
    backbuttonfour() {

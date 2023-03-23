@@ -6,7 +6,7 @@
     <div class="left"><MainBody></MainBody></div>
 
     <button @click="goResultPage()">결과페이지로 이동</button><br><br>
-    <a href="https://kauth.kakao.com/oauth/logout?client_id=26c4c3e8460d88a695130b78307910f4&logout_redirect_uri=http://e8e4-123-142-252-26.ngrok.io/login" @click="logout()">로그아웃</a>
+    <a href="https://kauth.kakao.com/oauth/logout?client_id=26c4c3e8460d88a695130b78307910f4&logout_redirect_uri=http://192.168.0.195/login" @click="logout()">로그아웃</a>
   </div>
 </template>
 

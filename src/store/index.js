@@ -33,7 +33,7 @@ const store = new Vuex.Store({
         },
 
         isExist: function(state) {
-            return state.characterinfo.characterNum > 1;
+            return state.characterinfo.characterNum;
         },
         getUserEmail: function(state) {
             return state.userinfo.userEmail;

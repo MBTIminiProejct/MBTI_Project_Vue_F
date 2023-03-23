@@ -52,7 +52,7 @@ export default {
     if (result == true){  
               
       this.$router.push('/survey/partone'); 
-      axios.get('http://localhost:8080/springmbti/survey/fast',{
+      axios.get(this._baseUrl + 'survey/fast',{
         params: {
           fast : 2
         }
@@ -68,7 +68,7 @@ export default {
 
         } else {  
           this.$router.push('/survey/partone'); 
-          axios.get('http://localhost:8080/springmbti/survey/slow',{
+          axios.get(this._baseUrl +'survey/slow',{
         params: {
           slow : 1
         }

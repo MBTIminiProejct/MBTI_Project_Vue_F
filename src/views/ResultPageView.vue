@@ -19,6 +19,9 @@
 	</CENTER></h3>
     <div>
     	<ul>
+            <li>
+                {{$store.getters.getMBTIResult.mbticharacter}}
+            </li>
     		<li>
     			{{$store.getters.getMBTIResult.mbticomment1}}
     		</li>
@@ -38,7 +41,6 @@
 <script>
 import {mapState} from 'vuex';
 
-import axios from 'axios';
 export default {
     name: 'ResultPageView',
     computed:{
