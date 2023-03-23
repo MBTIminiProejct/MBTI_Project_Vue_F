@@ -1,6 +1,5 @@
 <template>
-    <div>
-        <h3>메인화면</h3><br><br>
+    <div class="mainbody" style="font-family:verdana;">
         <img src='https://i.imgur.com/oMQzKAv.jpg'><br><br>
              <template v-if="this.$store.getters.isExist>1">
                 <button id="clicktwo"><router-link to="/mypage">마이페이지</router-link></button>
@@ -9,9 +8,14 @@
                 </form>
             </template>
             <template v-else>
-                <button class="btn-primary" @click="showModal = true">설문조사</button>
-                <Modal v-if="showModal" @close-modal="showModal = false">
-                </Modal>                
+
+                    <!--<router-link to="/survey/partone"><input id="clickone" type="submit" value="설문조사"><br></router-link>-->
+                                    
+                    <button class="btn-primary" @click="showModal = true">설문조사</button>
+                        <Modal v-if="showModal" @close-modal="showModal = false">
+                    <!-- <button @click="$emit('close-modal')">Close Modal</button> -->
+                    </Modal>                <button disabled="disabled" class="btn-secondary" id="clickthree">캐릭터 삭제하기</button><br>
+
                 <button class="btn-primary" disabled="disabled">마이페이지</button><br>
             </template>
             <!-- <button class="btn-secondary" id="deleteUser" @click="deleteUser()">회원탈퇴</button> -->
@@ -21,7 +25,7 @@
 </template>
 <script>
 import Modal from '@/components/SurveyModal.vue';
-import axios from 'axios'
+
 
 export default{
     
@@ -101,9 +105,17 @@ export default{
 }
 </script>
 <style scoped>
+.mainbody {
+    position : relative;
+}
+
 img{
-    width: 300px;
-    height: 300px;
+    padding-top: 35%;
+    width: 40%;
+    height:50%;
+    margin: auto;
+    display: block;
+
 }
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap');
 
@@ -142,6 +154,18 @@ img{
     cursor: pointer;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     transition: box-shadow 0.2s;
+  }
+
+  #clickone {
+    margin: 10px;
+  }
+
+  #clicktwo {
+    margin: 10px;
+  }
+
+  #clickthree {
+    margin: 10px;
   }
 
 </style>

@@ -1,12 +1,13 @@
 <template>
-    <div id="rank">  
-        <h1>랭킹표</h1>
-        <button @click="showRank()">랭킹 보기</button>
+    <div class="rank">  
+        <h3> 랭킹표 </h3>
+        <button @click="showRank()">랭킹 보기</button><br>
+        <img v-if="$store.state.ranklist" src="../assets/beanlist.gif">
         {{$store.state.ranklist.userNum}}
-          <ul>
+          <ul v-if="$store.state.ranklist">
             <li v-for="(rank, index) in $store.state.ranklist" v-bind:key="index">
               {{index+1}}등 ID : <router-link to="/userpage"><a @click="userPage(index)">{{rank.userName}}</a></router-link>
-              , {{rank.userWin}}승, {{rank.userPoint}}점
+              {{rank.userWin}}승, {{rank.userPoint}}점
           </li>
         </ul>
     </div> 
@@ -15,6 +16,7 @@
 
 <script>
 import axios from 'axios';
+
 export default {
   name:'MainRight',
   data() {
@@ -77,6 +79,10 @@ export default {
 
 </script>
 <style scoped>
+.rank {
+    border: 1px;
+    margin-top: 50%;
+}
 h1 {
   color: rgb(78, 69, 78);
   font-weight: 900; /* 텍스트 굵기 */
@@ -86,5 +92,12 @@ h2 {
   color: rgb(78, 69, 78);
   font-weight: 500; /* 텍스트 굵기 */
   margin: 2.5rem 0 1.5rem;
+}
+img{
+  width: 150px;
+  height: 150px;
+}
+li{
+  text-align: left;
 }
 </style>
