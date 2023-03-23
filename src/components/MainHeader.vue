@@ -1,7 +1,7 @@
 <template>
-    <div id="header">  
-        <h1>MBTI 미니 대결</h1>
-        <h2>모두모두 덤벼라!</h2>
+    <div class="textbox1" stylye="center">  
+        <p>MBTI 미니 대결</p>
+        <p>모두모두 덤벼라!</p>
         <p>나만의 MBTI 캐릭터 만들기</p>
     </div> 
 </template>
@@ -9,15 +9,10 @@
 
 </script>
 <style scoped>
-h1 {
-  color: rgb(78, 69, 78);
-  font-weight: 900; /* 텍스트 굵기 */
+div.textbox1{
+  background-color: #00008b;
+  color: white;
+  font-weight: 70; 
   margin: 2.5rem 0 1.5rem;
 }
-h2 {
-  color: rgb(78, 69, 78);
-  font-weight: 500; /* 텍스트 굵기 */
-  margin: 2.5rem 0 1.5rem;
-}
-
 </style>

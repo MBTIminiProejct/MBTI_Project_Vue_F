@@ -102,7 +102,7 @@ export default {
   a.kakaoa {
     color: #42b983;
   }
-  div.kakaologin { 
+  /* div.kakaologin { } */
     /* width: 200px;  */
     /* height:0px;  */
     /* background-color:#fdd101;  */
@@ -110,5 +110,5 @@ export default {
     /* align-items: center;  */
     /* justify-content: center;  */
     /* cursor:pointer;  */
-  }
+
 </style>

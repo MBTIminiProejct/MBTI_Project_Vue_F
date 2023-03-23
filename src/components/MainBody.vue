@@ -1,8 +1,7 @@
 <template>
     <div>
-        <h3>메인화면</h3><br><br>
         <img src='https://i.imgur.com/oMQzKAv.jpg'><br><br>
-             <template v-if="this.$store.getters.isExist>1">
+             <template v-if="this.$store.getters.isExist > 1">
                 <!-- <button @click="deleteCharacter()">캐릭터 삭제하기</button> -->
                   <button id="clicktwo"><router-link to="/mypage">마이페이지</router-link></button>
                     <form :disabled="isDisabled">
@@ -25,7 +24,7 @@
 </template>
 <script>
 import Modal from '@/components/SurveyModal.vue';
-import axios from 'axios'
+
 
 export default{
     
@@ -105,9 +104,23 @@ export default{
 }
 </script>
 <style scoped>
+.maintop {
+    background-color: #bc8f8f;
+    color: #00008b;
+    font: 50;
+    width: 100%;
+    float: top;
+    position : absolute;
+    bottom : 0;
+    overflow: hidden;
+    opacity:0.9;
+    box-sizing: border-box;
+    }
+
 img{
-    width: 300px;
-    height: 300px;
+    width: 60%;
+    margin: auto;
+    display: block;
 }
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap');
 

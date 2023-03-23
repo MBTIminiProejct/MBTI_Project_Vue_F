@@ -10,13 +10,15 @@
 import MatchRoomMyCharacter from '@/components/MatchRoomMyCharacter';
 import MatchRoomOtherCharacter from '@/components/MatchRoomOtherCharacter.vue';
 import MatchRoomCenterVue from '@/components/MatchRoomCenter.vue';
+import MainFooter from '@/components/MainFooter.vue'
 
   export default {
 	name: 'MatchRoomView',
 	components: {
 		MatchRoomMyCharacter,
 		MatchRoomOtherCharacter,
-		MatchRoomCenterVue
+		MatchRoomCenterVue,
+		MainFooter
 	},
 }
 </script>
