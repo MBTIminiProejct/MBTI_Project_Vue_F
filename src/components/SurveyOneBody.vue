@@ -528,7 +528,7 @@ if (rtotal == 5) {
              qthree: this.changenum3,
              qfour: this.changenum4,
              qfive: this.changenum5,
-             
+             email: this.$store.getters.getUserEmail
       }
    })
    .then(function (response) {

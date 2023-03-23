@@ -505,6 +505,7 @@
     })
    },
    sbuttontwo() {
+      let tmp = this;
     console.log("제출2")
     sessionStorage.setItem('myRadiosn1', this.myRadio1);
     sessionStorage.setItem('myRadiosn2', this.myRadio2);
@@ -516,16 +517,17 @@
     axios.get(this._baseUrl + 'survey/parttwo/sbuttontwo', {
        params: { 
               qone: this.changenum1,
-                  qtwo: this.changenum2,
+              qtwo: this.changenum2,
                   qthree: this.changenum3,
                   qfour: this.changenum4,
-                  qfive: this.changenum5
+                  qfive: this.changenum5,
+                  email: tmp.$store.getters.getUserEmail
        }
     })
     .then(function (response) {
        var data = response.data;
        var values = Object.values(data);
- 
+      console.log(tmp.$store.getters.getUserEmail);
    }).catch(function (error) {
     console.log(error);
    })

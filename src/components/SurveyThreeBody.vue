@@ -500,6 +500,7 @@
     })
    },
    sbuttonthree() {
+    let tmp = this;
     console.log("제출3")
     sessionStorage.setItem('myRadioft1', this.myRadio1);
    sessionStorage.setItem('myRadioft2', this.myRadio2);
@@ -514,7 +515,8 @@
                   qtwo: this.changenum2,
                   qthree: this.changenum3,
                   qfour: this.changenum4,
-                  qfive: this.changenum5
+                  qfive: this.changenum5,
+                  email : tmp.$store.getters.getUserEmail
        }
     })
     .then(function (response) {

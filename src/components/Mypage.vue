@@ -100,6 +100,7 @@
 			}
 		},
     deleteCharacter() {
+      let tmp = this;
             this.$confirm(
                 {
                     message:'캐릭터를 삭제하시겠습니까?',
@@ -111,13 +112,14 @@
                         if(confirm){
                             this.$axios.delete(this._baseUrl + "mypage/character",{
                                 data : {
-                                    userCharacterNum : this.$store.getters.getUserCharacterNum
+                                    userCharacterNum : this.$store.getters.getUserCharacterNum,
+                                    userEmail : this.$store.getters.getUserEmail
                                     }
                             })
                             .then(result=> {
-                                alert(result.data);
-                                localStorage.removeItem('vuex');
-                                this.$store.commit("setCharacterNum",1);
+                                alert("캐릭터 삭제 완료!!!");
+                                tmp.$store.commit("setUserInfo",result.data);
+                                console.log(tmp.$store.getters.getUserCharacterNum);
                                 this.$router.push({name:"main"});
                             })
                             .catch(function(){
@@ -138,9 +140,9 @@
                         no : '취소',
                         yes: '탈퇴'
                     },
-                    callback:confirm=>{
-                        if(confirm){
-                            this.$axios.delete(this._baseUrl + "mypage/deleteUser",{
+                callback:confirm=>{
+                    if(confirm){
+                         this.$axios.delete(this._baseUrl + "mypage/deleteUser",{
                                 data:{
                                     userEmail:this.$store.getters.getUserEmail
                                 }
@@ -156,9 +158,10 @@
                         }else{
                             return //이전화면 돌아가기
                         }
-                    }
                 }
-            )             
+                }
+            )
+                    },
         changeAccpet() {
           axios.get(this._baseUrl + "mypage/useraccpet", {
               })
@@ -169,13 +172,16 @@
                 alert("변경실패 관리자에게 문의해보세요")
               });
               },
+                
     },
+        
 	data() {
     	return {
 			battleUserNum : ''
    		}
   	}
 }
+  
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -346,4 +352,3 @@
   transition: box-shadow 0.2s;
 }
 </style>
-  

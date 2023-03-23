@@ -16,7 +16,8 @@ const store = new Vuex.Store({
         battleloginfo: [],
         mbtiresult: [],
         anotheruserinfo: [],
-        mbtianotheruserimg: []
+        mbtianotheruserimg: [],
+        userSpeed : 0 
     },
     getters: {
         getMyNum: function(state) {
@@ -33,7 +34,7 @@ const store = new Vuex.Store({
         },
 
         isExist: function(state) {
-            return state.userinfo.characterNum;
+            return state.userinfo.userCharacter;
         },
         getUserEmail: function(state) {
             return state.userinfo.userEmail;
@@ -54,8 +55,14 @@ const store = new Vuex.Store({
             return state.mbtianotheruserimg.mbtiimgurl;
 
         },
+        getUserSpeed:function(state){
+            return state.userSpeed;
+        }
     },
     mutations: {
+        setUserSpeed(state, num) {
+            state.userSpeed = num;
+        },
         setRankList(state, list) {
             state.ranklist = list;
         },
@@ -98,7 +105,8 @@ const store = new Vuex.Store({
         },
         setCharacterNum(state, num) {
             state.userinfo.usercharacter = num;
-        }
+        },
+        
 
     },
     action: {

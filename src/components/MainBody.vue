@@ -18,6 +18,7 @@
 
                 <button class="btn-primary" disabled="disabled">마이페이지</button><br>
             </template>
+            캐릭터 num : {{this.$store.getters.getUserCharacterNum}}
             <!-- <button class="btn-secondary" id="deleteUser" @click="deleteUser()">회원탈퇴</button> -->
           <vue-confirm-dialog></vue-confirm-dialog>
         <router-view></router-view>

@@ -549,22 +549,24 @@
                   qtwo: this.changenum2,
                   qthree: this.changenum3,
                   qfour: this.changenum4,
-                  qfive: this.changenum5
+                  qfive: this.changenum5,
+                  speed: cmp.$store.getters.getUserSpeed,
+                  email: cmp.$store.getters.getUserEmail
        }
     })
     .then(function (response) {
        var data = response.data;
-       var values = Object.values(data);
-      cmp.$store.commit("setCharacterInfo",response.data);
+       
+      cmp.$store.commit("setCharacterInfo",JSON.parse(response.data.characterInfo));
+      cmp.$store.commit("setUserInfo",JSON.parse(response.data.userInfo));
 
       axios.get('http://192.168.0.195:8085/springmbti/survey/partfour/sbuttonfour/user', {
         params: {
-            qone: 1
+            qone: 1,
+            mbti: cmp.$store.getters.getUserMbti
         }
       })
-      .then(function (response) { 
-      
-      cmp.$store.commit("setUserInfo",JSON.parse(response.data.userInfo));
+      .then(function (response) {
       cmp.$store.commit("setMBTIResult",JSON.parse(response.data.mbtiInfo));
         
     }).catch(function (error) {
