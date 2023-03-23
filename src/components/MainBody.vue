@@ -9,8 +9,12 @@
                     </form>
             </template>
             <template v-else>
-                    <router-link to="/survey/partone"><input id="clickone" type="submit" value="설문조사"><br></router-link>
-                <button disabled="disabled">캐릭터 삭제하기</button><br>
+                    <!--<router-link to="/survey/partone"><input id="clickone" type="submit" value="설문조사"><br></router-link>-->
+                                    
+                    <button @click="showModal = true">설문조사</button>
+                        <Modal v-if="showModal" @close-modal="showModal = false">
+                    <!-- <button @click="$emit('close-modal')">Close Modal</button> -->
+                    </Modal>                <button disabled="disabled">캐릭터 삭제하기</button><br>
                 <button disabled="disabled">마이페이지</button><br>
             </template>
             <button id="deleteUser" @click="deleteUser()">회원탈퇴</button>
@@ -19,10 +23,19 @@
     </div>
 </template>
 <script>
-
+import Modal from '@/components/SurveyModal.vue';
+import axios from 'axios'
 
 export default{
     
+    components: {
+    Modal,
+    },
+    data() {
+    return {
+      showModal: false
+      
+    }},
     computed: {
         isDisabled() {
         return false;
