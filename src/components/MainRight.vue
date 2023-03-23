@@ -5,7 +5,7 @@
         {{$store.state.ranklist.userNum}}
           <ul>
             <li v-for="(rank, index) in $store.state.ranklist" v-bind:key="index">
-              {{index+1}}등 ID : <router-link to="/userpage"><button @click="userPage(index)">{{rank.userName}}</button></router-link>
+              {{index+1}}등 ID : <router-link to="/userpage"><a @click="userPage(index)">{{rank.userName}}</a></router-link>
               , {{rank.userWin}}승, {{rank.userPoint}}점
           </li>
         </ul>
@@ -15,7 +15,6 @@
 
 <script>
 import axios from 'axios';
-
 export default {
   name:'MainRight',
   data() {
@@ -39,17 +38,34 @@ export default {
           
     },
     userPage(index) {
-      let cmd = this;
-      console.log("제발");
+      let cmd =this;
+      this.index = index
+      //console.log("제발");
       axios.get(this._baseUrl + "userpage/readUserPage" , {
       params: { 
         index: index
       }
    })
    .then(function (response) {
-
+      console.log(response.data);
+      //let cmd =this;
+      // console.log(response.data.mbtiImg);
+      // cmd.$store.commit("setAnotherUserInfo",response.data['userInfo'])
+      // cmd.$store.commit("setAnotherUserInfo",response.data['mbtiImg'])
       cmd.$store.commit("setAnotherUserInfo",response.data)
-     
+      //let cmc =this;
+        axios.get('http://localhost:8080/springmbti/userpage/readMbtiPage' , {
+            params: {
+              index: cmd.index
+            }
+          })
+          .then(function (response) {
+            console.log(response.data.mbtiimgurl);
+            cmd.$store.commit("setMbtiAnotherUserImg",response.data.mbtiimgurl)
+          }).catch(function (error) {
+
+          }) 
+        
    }).catch(function (error) {
       console.log(error);
    })

@@ -12,7 +12,7 @@ import MatchRoomView from '../views/MatchRoomView'
 import BattleResultView from '../views/BattleResultView.vue'
 import store from "../store/index.js"
 import UserPageView from "../views/UserPageView.vue"
-import FightLoadingView from "../views/FightLoadingView.vue"
+import LoadingView from "../views/LoadingView.vue"
 
 Vue.use(VueRouter)
 
@@ -156,23 +156,23 @@ const routes = [{
     {
         path: '/loading',
         name: 'loading',
-        component: FightLoadingView,
+        component: LoadingView,
         props: true
     },
     {
-      path: '/battleresult',
-      name: 'battleresult',
-      component: BattleResultView,
-      props: true,
-      beforeEnter:function(to,from,next){
-        if(!store.getters["isLogin"]){
-          alert("로그인 정보 없음, 로그인 페이지로 이동합니다.");
-          next('/login');
-        }else{
-          next();
+        path: '/battleresult',
+        name: 'battleresult',
+        component: BattleResultView,
+        props: true,
+        beforeEnter: function(to, from, next) {
+            if (!store.getters["isLogin"]) {
+                alert("로그인 정보 없음, 로그인 페이지로 이동합니다.");
+                next('/login');
+            } else {
+                next();
+            }
+
         }
-        
-      }
     }
 ]
 
