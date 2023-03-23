@@ -57,9 +57,10 @@
     </div>
     <br>
     <div style="display: flex; justify-content: space-between;">
-      <button class="btn-secondary" @click="deleteCharacter()" style="margin-right: 16px;">캐릭터 삭제하기</button>
-      <br>
-      <button class="btn-secondary" id="deleteUser" @click="deleteUser()">회원탈퇴</button>
+      <button class= "btn-change" @click="changeAccpet()" style="margin-right: 150px;">대결허용 상태변경</button>
+      <button class="btn-secondary" @click="deleteCharacter()" style="margin-left: 300px;">캐릭터 삭제하기</button>
+      <button class="btn-secondary" id="deleteUser" @click="deleteUser()" style="margin-left: 20px;">회원탈퇴</button>
+    <vue-confirm-dialog></vue-confirm-dialog>
     </div>
   </div>
 </template>
@@ -109,12 +110,15 @@
                     callback:confirm=>{
                         if(confirm){
                             this.$axios.delete(this._baseUrl + "mypage/character",{
-                                params : {
+                                data : {
                                     userCharacterNum : this.$store.getters.getUserCharacterNum
                                     }
                             })
                             .then(result=> {
-                                alter("성공")
+                                alert(result.data);
+                                localStorage.removeItem('vuex');
+                                this.$store.commit("setCharacterNum",1);
+                                this.$router.push({name:"main"});
                             })
                             .catch(function(){
                                 console.log("캐릭터 삭제 연결 실패");
@@ -155,7 +159,16 @@
                     }
                 }
             )             
-        }
+        changeAccpet() {
+          axios.get(this._baseUrl + "mypage/useraccpet", {
+              })
+              .then(result=> {
+                alert("변경 완료")
+              })
+              .catch(function () {
+                alert("변경실패 관리자에게 문의해보세요")
+              });
+              },
     },
 	data() {
     	return {
@@ -314,6 +327,23 @@
   color: #fff;
   border: none;
   border-radius: 5px;
+}
+.btn-change {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.2s;
 }
 </style>
   

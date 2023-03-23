@@ -2,19 +2,20 @@
     <div class="mainbody" style="font-family:verdana;">
         <img src='https://i.imgur.com/oMQzKAv.jpg'><br><br>
              <template v-if="this.$store.getters.isExist>1">
-                <!-- <button @click="deleteCharacter()">캐릭터 삭제하기</button> -->
-                  <button id="clicktwo"><router-link to="/mypage">마이페이지</router-link></button>
-                    <form :disabled="isDisabled">
-                        <input id="clickone" type="submit" value="설문조사"><br>
-                    </form>
+                <button id="clicktwo"><router-link to="/mypage">마이페이지</router-link></button>
+                <form :disabled="isDisabled">
+                    <input id="clickone" type="submit" value="설문조사"><br>
+                </form>
             </template>
             <template v-else>
+
                     <!--<router-link to="/survey/partone"><input id="clickone" type="submit" value="설문조사"><br></router-link>-->
                                     
                     <button class="btn-primary" @click="showModal = true">설문조사</button>
                         <Modal v-if="showModal" @close-modal="showModal = false">
                     <!-- <button @click="$emit('close-modal')">Close Modal</button> -->
                     </Modal>                <button disabled="disabled" class="btn-secondary" id="clickthree">캐릭터 삭제하기</button><br>
+
                 <button class="btn-primary" disabled="disabled">마이페이지</button><br>
             </template>
             <!-- <button class="btn-secondary" id="deleteUser" @click="deleteUser()">회원탈퇴</button> -->
