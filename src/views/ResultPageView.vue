@@ -1,7 +1,7 @@
 <template>
 <div>
     <div align="center"><h3>당신의 MBTI는 ...</h3></div>
-    <div align="center"><h3>{{$store.getters.getUserInfo.userMBTI}},{{$store.getters.getCharacterInfo.characterNum}}입니다.</h3></div>
+    <div align="center"><h3>{{$store.getters.getUserInfo.userMBTI}}입니다.</h3></div>
     <div align="center"><h4>당신의 캐릭터는 HP - {{$store.getters.getCharacterInfo.characterHP}} <br>
             물리공격력 -  {{$store.getters.getCharacterInfo.characterAD}}  <br>
             마법공격력 - {{$store.getters.getCharacterInfo.characterAP}} <br>

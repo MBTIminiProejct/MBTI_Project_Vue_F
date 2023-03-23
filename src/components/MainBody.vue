@@ -4,9 +4,6 @@
         <img src='https://i.imgur.com/oMQzKAv.jpg'><br><br>
              <template v-if="this.$store.getters.isExist>1">
                 <button id="clicktwo"><router-link to="/mypage">마이페이지</router-link></button>
-                <form :disabled="isDisabled">
-                    <input id="clickone" type="submit" value="설문조사"><br>
-                </form>
             </template>
             <template v-else>
                 <button class="btn-primary" @click="showModal = true">설문조사</button>

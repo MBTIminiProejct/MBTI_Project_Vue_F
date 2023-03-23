@@ -19,7 +19,7 @@ footer {
     color: #708090;
     width: 100%;
     float: bottom;
-    position : fixed;
+    /* position : fixed; */
     bottom : 0;
     opacity:0.8;
     
