@@ -33,11 +33,11 @@ img{
     width: 300px;
     height: 300px;
 }
-div.battleresultwin {
+/* div.battleresultwin {
 	  text-align: left;
-}
-h3 {
+} */
+/* h3 {
 	font-size: 22px;
-}
+} */
 </style>
   

@@ -23,7 +23,7 @@ import axios from 'axios'
 	data() {
 		return {
 			battleField : '',
-			imgurl : ''
+			imgurl : 'https://i.imgur.com/Brj8yTt.gif'
 		}
 	},
 	methods: {

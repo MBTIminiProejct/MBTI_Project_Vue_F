@@ -26,13 +26,13 @@ components: {
 
 <style scoped>
 div.left {
-        width: 20%;
+        width: 30%;
         float: left;
         box-sizing: border-box;
         
     }
 div.right {
-        width: 20%;
+        width: 30%;
         float: right;
         box-sizing: border-box;
         
