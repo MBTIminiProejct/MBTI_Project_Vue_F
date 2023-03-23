@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="mainbody" style="font-family:verdana;">
         <img src='https://i.imgur.com/oMQzKAv.jpg'><br><br>
-             <template v-if="this.$store.getters.isExist > 1">
+             <template v-if="this.$store.getters.isExist>1">
                 <!-- <button @click="deleteCharacter()">캐릭터 삭제하기</button> -->
                   <button id="clicktwo"><router-link to="/mypage">마이페이지</router-link></button>
                     <form :disabled="isDisabled">
@@ -14,7 +14,7 @@
                     <button class="btn-primary" @click="showModal = true">설문조사</button>
                         <Modal v-if="showModal" @close-modal="showModal = false">
                     <!-- <button @click="$emit('close-modal')">Close Modal</button> -->
-                    </Modal>                <button disabled="disabled" class="btn-secondary">캐릭터 삭제하기</button><br>
+                    </Modal>                <button disabled="disabled" class="btn-secondary" id="clickthree">캐릭터 삭제하기</button><br>
                 <button class="btn-primary" disabled="disabled">마이페이지</button><br>
             </template>
             <!-- <button class="btn-secondary" id="deleteUser" @click="deleteUser()">회원탈퇴</button> -->
@@ -104,23 +104,17 @@ export default{
 }
 </script>
 <style scoped>
-.maintop {
-    background-color: #bc8f8f;
-    color: #00008b;
-    font: 50;
-    width: 100%;
-    float: top;
-    position : absolute;
-    bottom : 0;
-    overflow: hidden;
-    opacity:0.9;
-    box-sizing: border-box;
-    }
+.mainbody {
+    position : relative;
+}
 
 img{
-    width: 60%;
+    padding-top: 35%;
+    width: 40%;
+    height:50%;
     margin: auto;
     display: block;
+
 }
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap');
 
@@ -159,6 +153,18 @@ img{
     cursor: pointer;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     transition: box-shadow 0.2s;
+  }
+
+  #clickone {
+    margin: 10px;
+  }
+
+  #clicktwo {
+    margin: 10px;
+  }
+
+  #clickthree {
+    margin: 10px;
   }
 
 </style>

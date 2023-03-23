@@ -1,18 +1,10 @@
 <template>
   <div class="hello">
     <div style="font-family:verdana; text-align: center"> 
-		  <h2>나만의  MBTI 캐릭터 만들기</h2>
-		  <h3 style="font-family:courier">모두 덤벼라!</h3>
-		  <h1>MBTI 미니 대전</h1>
+		  <!-- <h2>콩들의 대결</h2>
+		  <h1>MBeanTI</h1> -->
+		  <!-- <h3 style="font-family:courier">모두 덤벼라!</h3> -->
 	  </div>
-    <!-- <div class="kakaologin">
-      <img class="main" src="https://i.imgur.com/y4HuMAZ.jpeg">
-      <br>
-      <a class="kakaoa" @click="kakaoLogin()">
-      <img class="kakaoimg" src="../assets/kakao_login_medium_narrow.png">
-      </a>
-    </div>
-  </div> -->
   <img class="main" src="https://i.imgur.com/y4HuMAZ.jpeg">
   <div class="kakaologin">
     <a class="kakaoa" @click="kakaoLogin()">
@@ -88,6 +80,7 @@ export default {
     margin: 45px;
     box-shadow: 0px 0px 0.5px #d8d8d8;
   }
+
   h3 {
     margin: 40px 0 0;
   }
@@ -97,18 +90,19 @@ export default {
   }
   li {
     display: inline-block;
-    margin: 0 10px;
+    margin: 10px;
   }
   a.kakaoa {
     color: #42b983;
+    
   }
-  /* div.kakaologin { } */
-    /* width: 200px;  */
-    /* height:0px;  */
-    /* background-color:#fdd101;  */
-    /* color:white; display:flex;  */
-    /* align-items: center;  */
-    /* justify-content: center;  */
-    /* cursor:pointer;  */
-
+  /* div.kakaologin {
+    width: 200px; 
+    height:100px; 
+    background-color:#fdd101; 
+    color:white; display:flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor:pointer; 
+ } */
 </style>

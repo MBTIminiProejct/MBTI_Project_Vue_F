@@ -1,8 +1,10 @@
 <template>
+  <footer>
     <div class="footer">
       <h5>(C) 2023. MBeanTI. 3조 BeanFactory.</h5>
         <h5>All right reserved</h5> 
         </div>
+  </footer>
 </template>
 <script>
 
@@ -12,16 +14,15 @@ export default {
 }
 </script>
 <style>
-.footer {
+footer {
     background-color: #00008b;
     color: #708090;
     width: 100%;
     float: bottom;
-    position : absolute;
+    position : fixed;
     bottom : 0;
-    overflow: hidden;
-    opacity:0.9;
-    margin-bottom: 30px;
+    opacity:0.8;
+    
 }
 h6 {
   color: #708090;

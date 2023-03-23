@@ -1,8 +1,29 @@
 <template>
   <div id="app"> 
+    <MainFooter v-if="isLogIn"/>
+    <MainHeader v-if="isLogin"/>
     <router-view/>
+     
   </div>
 </template>
+
+<script>
+import MainFooter from '@/components/MainFooter.vue'
+import MainHeader from '@/components/MainHeader.vue'
+
+export default {
+  components : {
+    MainFooter,
+    MainHeader
+  },
+  computed: {
+    isLogIn(){
+     const fixedViews = ['MainView', 'ResultPageView', 'MyPageView', 'SurveyViewOne', 'SurveyViewTwo', 'SurveyViewThree', 'SurveyViewFour', 'MatchRoomView', 'BattleResultView', 'UserPageView', 'LoadingView'];
+      return fixedViews.includes(this.$route.name);
+    }
+  }
+}
+</script>
 
 <style>
 #app {

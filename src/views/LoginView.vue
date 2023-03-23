@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Login msg="Welcome to Your Vue.js App"/>
-        <div class="bottom"><MainFooter></MainFooter></div>
+      <MainFooter></MainFooter>
   </div>
 </template>
 

@@ -12,6 +12,7 @@
             회피율 - {{$store.getters.getCharacterInfo.characterAvoidanceRate}} <br>
             크리티컬 확률 - {{$store.getters.getCharacterInfo.characterCritical}} <br>
             기본추가공격력 - {{$store.getters.getCharacterInfo.characterAdditionalDmg}} <br>입니다.</h4></div>
+
     <h3><CENTER>
 		<img
 		width="300"
@@ -35,14 +36,19 @@
     	<button class="battle_btn" @click="goMyPage()">마이페이지</button><br>
     	<button class="myPage_btn" @click="downloadImage">이미지 다운로드 페이지로 이동</button>
     </div>
+    <br><MainFooter></MainFooter>
 </div>
 </template>
 
 <script>
 import {mapState} from 'vuex';
+import MainFooter from '@/components/MainFooter.vue'
 
 export default {
     name: 'ResultPageView',
+    components : {
+        MainFooter
+    },
     computed:{
         ...mapState({
             url:state => state.mbtiresult.mbtiimgurl
