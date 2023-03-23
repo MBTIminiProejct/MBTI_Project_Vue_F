@@ -36,7 +36,7 @@
         </div>
         <div class="user-info-row">
           <div class="user-info-label">아이템 :</div>
-          <div class="user-info-value">{{ $store.state.userinfo.userName }}</div>
+          <div class="user-info-value">{{ $store.state.userinfo.userItem }}</div>
         </div>
         <div class="user-info-row">
           <div class="user-info-label">대결허용 :</div>
@@ -46,16 +46,21 @@
       <div class="battle-info">
         <div class="battle-info-row">
           <div class="battle-info-label">대결 상대 유저번호 :</div>
-          <input type="text" v-model="battleUserNum" class="battle-info-input">
+          <div class="battle-info-input-wrapper">
+            <input type="text" v-model="battleUserNum" class="battle-info-input">
+          </div>
         </div>
         <div class="battle-info-row">
-          <button @click="perpBattle()" class="battle-info-button">대결준비</button>
-        </div>
-      </div>
+    <button @click="perpBattle()" class="battle-info-button">대결준비</button>
+  </div>
+</div>
     </div>
-    <button class="btn-secondary" @click="deleteCharacter()">캐릭터 삭제하기</button>
     <br>
-    <button class="btn-secondary" id="deleteUser" @click="deleteUser()">회원탈퇴</button>
+    <div style="display: flex; justify-content: space-between;">
+      <button class="btn-secondary" @click="deleteCharacter()" style="margin-right: 16px;">캐릭터 삭제하기</button>
+      <br>
+      <button class="btn-secondary" id="deleteUser" @click="deleteUser()">회원탈퇴</button>
+    </div>
   </div>
 </template>
   
@@ -190,19 +195,19 @@
   
   .user-info, .battle-info {
     width: 45%;
-    margin: 0 10px;
+    margin: 10px;
   }
   
   .user-info-row, .battle-info-row {
     display: flex;
     flex-direction: row;
-    margin-bottom: 10px;
+    margin-bottom: 9px;
   }
   
   .user-info-label, .battle-info-label {
     font-weight: bold;
-    margin-right: 10px;
-    width: 30%;
+    margin-right: 8px;
+    width: 80%;
     text-align: right;
   }
   
@@ -214,12 +219,20 @@
   
   .battle-info-button {
     background-color: #007bff;
-    color: white;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    color: white;
+    padding: 9px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.2s;
   }
   
   .title {
@@ -250,7 +263,7 @@
     background-color: #f44336;
     border: none;
     color: white;
-    padding: 12px 24px;
+    padding: 9px 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -263,5 +276,44 @@
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     transition: box-shadow 0.2s;
   }
+  .battle-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.battle-info-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.battle-info-label {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.battle-info-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.battle-info-input {
+  padding: 5px;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+.battle-info-button {
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
 </style>
   

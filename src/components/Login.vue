@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <div class="box1" style="font-family:verdana; text-align: center"> 
+    <div style="font-family:verdana; text-align: center"> 
 		  <h2>나만의  MBTI 캐릭터 만들기</h2>
 		  <h3 style="font-family:courier">모두 덤벼라!</h3>
 		  <h1>MBTI 미니 대전</h1>
@@ -16,7 +16,7 @@
   <img class="main" src="https://i.imgur.com/y4HuMAZ.jpeg">
   <div class="kakaologin">
     <a class="kakaoa" @click="kakaoLogin()">
-    <img class="kakaoimg" src="../assets/kakao_login_medium_narrow.png" style="max-width: 100%; height: auto;">
+    <img class="kakaoimg" src="../assets/kakao_login_medium_narrow.png" style="max-width: 30%; height: auto;">
   </a>
   </div>
 </div>
@@ -83,10 +83,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   img.main {
-    border: 1px solid #d8d8d8;
+    border: none;
     width: 45%;
     margin: 45px;
-    box-shadow: 0px .5px 1px #d8d8d8;
+    box-shadow: 0px 0px 0.5px #d8d8d8;
   }
   h3 {
     margin: 40px 0 0;
