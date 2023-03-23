@@ -9,20 +9,17 @@
 <script>
 
 export default {
-  name:'MainFooter',
+  name:'MainFooter'
   
 }
 </script>
 <style>
-footer {
-    background-color: #00008b;
-    color: #708090;
-    width: 100%;
-    float: bottom;
-    /* position : fixed; */
-    bottom : 0;
-    opacity:0.8;
-    
+ div.footer {
+    color: #00008b;
+    padding-top: 15%;
+    padding-right: 15%;
+    padding-bottom: 0%;
+    padding-left: 15%;
 }
 h6 {
   color: #708090;

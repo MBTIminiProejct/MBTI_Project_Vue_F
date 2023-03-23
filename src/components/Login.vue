@@ -1,9 +1,7 @@
 <template>
   <div class="hello">
     <div style="font-family:verdana; text-align: center"> 
-		  <!-- <h2>콩들의 대결</h2>
-		  <h1>MBeanTI</h1> -->
-		  <!-- <h3 style="font-family:courier">모두 덤벼라!</h3> -->
+
 	  </div>
   <img class="main" src="https://i.imgur.com/y4HuMAZ.jpeg">
   <div class="kakaologin">
@@ -96,13 +94,4 @@ export default {
     color: #42b983;
     
   }
-  /* div.kakaologin {
-    width: 200px; 
-    height:100px; 
-    background-color:#fdd101; 
-    color:white; display:flex; 
-    align-items: center; 
-    justify-content: center; 
-    cursor:pointer; 
- } */
 </style>

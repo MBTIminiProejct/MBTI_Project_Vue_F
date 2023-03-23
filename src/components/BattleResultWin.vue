@@ -2,8 +2,8 @@
 	<div class="battleresultwin">
 		<h1>승자</h1>
 		<a href='https://ifh.cc/v-L44C7h' target='_blank'><img src='https://ifh.cc/g/L44C7h.jpg' border='0'></a>
-		<h3>승자 닉네임 : {{ $store.state.battleloginfo.winnerName }}</h3>
-		<h3>승자 MBTI : {{ $store.state.battleloginfo.winnerMBTI }}</h3>
+		<h3> 승자 닉네임 : {{ $store.state.battleloginfo.winnerName }}</h3>
+		<h3> 승자 MBTI : {{ $store.state.battleloginfo.winnerMBTI }}</h3>
 		<h3>{{ $store.state.battleloginfo.winnerName }}은(는) {{ $store.state.battleloginfo.winPoint }} 의 점수를 얻었습니다 :D</h3>
 	</div>
 </template>
@@ -32,6 +32,12 @@ name: 'BattleResultWin',
 img{
     width: 300px;
     height: 300px;
+}
+div.battleresultwin {
+	  text-align: left;
+}
+h3 {
+	font-size: 22px;
 }
 </style>
   

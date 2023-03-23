@@ -1,15 +1,13 @@
 <template>
-  <div>
-  <MainHeader></MainHeader>
-  <div class="main" style="font-family:verdana; text-align: center">
-    
+  <div style="font-family:verdana; text-align: center">
+    <MainHeader></MainHeader>
       <div class="right"><MainRight></MainRight></div>
-        <div class="left"><MainBody></MainBody></div>
-          <div class="btnbox1">
-          <!-- <button @click="goResultPage()">결과페이지로 이동</button><br><br> -->
-       <a href="https://kauth.kakao.com/oauth/logout?client_id=26c4c3e8460d88a695130b78307910f4&logout_redirect_uri=http://192.168.0.195/login" @click="logout()">로그아웃</a>
-   </div>
-  </div>
+        <div class="body"><MainBody></MainBody></div>
+          <MainFooter></MainFooter>
+          <div class="btnbox1" style="font-family:verdana;">
+        <div><a href="https://kauth.kakao.com/oauth/logout?client_id=26c4c3e8460d88a695130b78307910f4&logout_redirect_uri=http://192.168.0.195/login" @click="logout()">로그아웃</a></div>
+      </div>
+    </div>
   <div ><MainFooter></MainFooter></div>
   </div>
 </template>
@@ -56,23 +54,21 @@ export default {
 }
 </script>
 <style scoped>
-div.main {
-  background-color: white;
-}
+
 div.right {
-    width: 30%;
     float: right;
-    box-sizing: border-box;
-          
+    box-sizing: border-box;         
     }
-div.left {
-    width: 70%;
-    float: left;
-    box-sizing: border-box;
-        
+div.body {
+    max-width : 900px;     
     }
 div.btnbox1{
-    box-sizing: border-box;
-    
+    color : white;
 }
+a {
+    position: absolute;
+    top:12.5px;
+    right:12.5px;
+}
+
 </style>

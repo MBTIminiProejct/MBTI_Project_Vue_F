@@ -1,5 +1,5 @@
 <template>
-	<div class="otherchharacter">
+	<div class="othercharacter">
 		<h1>{{$store.state.competionuserinfo.userName}} 캐릭터</h1>
 		<h2>HP : {{$store.state.competioncharacterinfo.characterHP}}</h2>
 		<h2>물리공격력 : {{$store.state.competioncharacterinfo.characterAD}}</h2>
@@ -16,7 +16,6 @@
   </template>
   
   <script>
-
   export default {
 	name: 'OtherCharacter'
 }
@@ -24,6 +23,11 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+div.othercharacter {
+	    text-align: left;
+}
+h1 {
+	  font-size: 30px;
+}
 </style>
   

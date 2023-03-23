@@ -6,8 +6,8 @@
        <h3>이 mbti 테스트는 본격적으로 대결을 하기 전 캐릭터를 결정하기 위해 만들어졌습니다. 본 검사는 타 mbti 조사보다 전문성이 다소 떨어집니다. 전문적인 MBTI 결과를 도출하기 위함이 아닌 단순 미니게임형식을 위한 조사입니다. 조사결과는 설문자의 개인적인 성향을 제작자임의로 판단하여 결과를 만들어내 해당 결과물로 만들어진 자신의 캐릭터로 지인과 대결을 즐길 수 있습니다. 
         따라서 단순히 재미로만 봐주시기 바랍니다. 그럴 수 없다면 설문조사를 취소하고 나가주시기를 간곡히 부탁드립니다.</h3>
         
-        <button @click="myfunc()">확인</button>
-        <button @click="myfunccancel()">취소</button>
+        <button class="btn-primary" @click="myfunc()">확인</button>
+        <button class="btn-primary" @click="myfunccancel()">취소</button>
       </div>
     </div>
   </div> 
@@ -101,6 +101,23 @@ export default {
 
 </script>
 <style>
+.btn-primary {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.2s;
+}
 .modal,
 .overlay {
   position: fixed;
