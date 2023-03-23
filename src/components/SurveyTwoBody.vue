@@ -1,13 +1,13 @@
 <template>
     <body>
-    <div class="box1" id = "boxe" style="font-family:verdana; text-align: center">
-    <label for="efile">S</label>
-    <progress id="efile" max="100" value="0"></progress>
- </div>
-     <div class="box2" id = "boxi" style="font-family:verdana; text-align: center">
-    <label for="ifile">N</label>
-    <progress id="ifile" max="100" value="0"></progress>
- </div>
+        <div class="box1" id = "boxs" style="font-family:verdana; text-align: center">
+   <label for="sfile">S</label>
+   <progress id="sfile" max="100" :value="sfileValue"></progress>
+</div>
+   <div class="box2" id = "boxn" style="font-family:verdana; text-align: center">
+   <label for="nfile">N</label>
+   <progress id="nfile" max="100" :value="nfileValue"></progress>
+</div>
     <br>
      <div class="box3" style="font-family:verdana; text-align: center">
      <h3>1. 사후세계에 대한 질문이 흥미롭다고 생각한다.</h3>
@@ -56,9 +56,11 @@
      
      <div class="box8" style="font-family:verdana; text-align: center">
      <!--<form action="/springmbti/survey/surveytwo" method="post">-->
+        <router-link to="/survey/partone"><button id="back2" @click="backbuttontwo()" >뒤로가기</button></router-link>
+
        <router-link to="/survey/partthree"><button id="next2" @click="sbuttontwo()" >제출</button></router-link>
          <!--<button id="next1" type="submit" @click="sbuttonone">제출</button>-->
-     </div>	
+     </div>   
      
  </body>
  
@@ -83,9 +85,66 @@
        changenum2: "",
        changenum3: "",
        changenum4: "",
-       changenum5: ""
+       changenum5: "",
+       sfileValue: 0,
+       nfileValue: 0
+
      };
    },
+   created() {
+   const myRadio1 = sessionStorage.getItem('myRadiosn1');
+    if (myRadio1 !== null) {
+        this.myRadio1 = myRadio1;
+        this.changenum1 = this.myRadio1;
+    }
+
+    const myRadio2 = sessionStorage.getItem('myRadiosn2');
+    if (myRadio2 !== null) {
+        this.myRadio2 = myRadio2;
+        this.changenum2 = this.myRadio2;
+    }
+
+    const myRadio3 = sessionStorage.getItem('myRadiosn3');
+    if (myRadio3 !== null) {
+        this.myRadio3 = myRadio3;
+        this.changenum3 = this.myRadio3;
+    }
+
+    const myRadio4 = sessionStorage.getItem('myRadiosn4');
+    if (myRadio4 !== null) {
+        this.myRadio4 = myRadio4;
+        this.changenum4 = this.myRadio4;
+    }
+    const myRadio5 = sessionStorage.getItem('myRadiosn5');
+    if (myRadio5 !== null) {
+        this.myRadio5 = myRadio5;
+        this.changenum5 = this.myRadio5;
+    }
+    const sfileValue = sessionStorage.getItem('sfileValue');
+    if (sfileValue !== null) {
+        this.sfileValue = sfileValue;
+    }
+
+    const nfileValue = sessionStorage.getItem('nfileValue');
+    if (nfileValue !== null) {
+        this.nfileValue = nfileValue;
+    }
+    
+  },
+  mounted() {
+   let rtotal = 0;
+    for (let i = 1; i <= 5; i++) {
+   let radioId = "#radio-previous" + i;
+   if ($(radioId).prop('checked')) {
+      rtotal += Number(0);
+   } else {
+      rtotal += Number(1);
+   }
+   }
+   if (rtotal == 5) {
+   $('#next2').show();
+   } 
+  },
    methods: {
      handleChange1() {
        this.changenum1 = this.myRadio1;
@@ -129,7 +188,7 @@
      },
      sendData1() {   
        console.log("제발1")
-       
+       let cmpone = this;
     axios.get(this._baseUrl + 'survey/parttwo/surveytwo', {
        params: { 
           onum: this.oldnum1,
@@ -139,56 +198,37 @@
     .then(function (response) {
        var data = response.data;
        var values = Object.values(data);
-       var eoldValue = Number($('#efile').attr("value"));
-       var ioldValue = Number($('#ifile').attr("value"));
-       
        if (data['onum'] == 3) {
-          console.log('onum3');
-          var eold = eoldValue - 20;
-          $('#efile').attr("value",eold);
-       } else if (data['onum'] == 2) {
-          console.log('onum2');
-          var eold = eoldValue - 13;
-          $('#efile').attr("value",eold);
-          var iold = ioldValue - 7;
-          $('#ifile').attr("value",iold);
-       } else if (data['onum'] == 1) {
-          console.log('onum1');
-          var eold = eoldValue - 7;
-          $('#efile').attr("value",eold);
-          var iold = ioldValue - 13;
-          $('#ifile').attr("value",iold);
-       } else if (data['onum'] == 0) {
-          console.log('onum0');
-          var iold = ioldValue - 20;
-          $('#ifile').attr("value",iold);
-       } else {
-          console.log('onum-1');
-       }
- 
-       var eold = Number($('#efile').attr("value"));
-       var iold = Number($('#ifile').attr("value"));
- 
-       if(data['cnum']==3) {
-                 var number = eold + 20;
-                 $('#efile').attr("value",number);
-             } else if(data['cnum']==2) {
-                 var number = eold + 13;
-                 $('#efile').attr("value",number);
-                 var number = iold + 7;
-                 $('#ifile').attr("value",number);
-             } else if(data['cnum']==1) {
-                 var number = eold + 7;
-                 $('#efile').attr("value",number);
-                 var number = iold + 13;
-                 $('#ifile').attr("value",number);
-         
-             } else if(data['cnum']==0) {
-                 var number = iold + 20;
-                 $('#ifile').attr("value",number);
-         } else {
-             console.log('-1');
-         }	
+         console.log('onum3');
+         cmpone.sfileValue -= 20;
+      } else if (data['onum'] == 2) {
+         console.log('onum2');
+         cmpone.sfileValue -= 13;
+         cmpone.nfileValue -= 7;
+      } else if (data['onum'] == 1) {
+         console.log('onum1');
+         cmpone.sfileValue -= 7;
+         cmpone.nfileValue -= 13;
+      } else if (data['onum'] == 0) {
+         console.log('onum0');
+         cmpone.nfileValue -= 20;
+      } else {
+         console.log('onum-1');
+      }
+
+      if(data['cnum']==3) {
+            cmpone.sfileValue += 20;
+         } else if(data['cnum']==2) {
+            cmpone.sfileValue += 13;
+            cmpone.nfileValue += 7;
+         } else if(data['cnum']==1) {
+            cmpone.sfileValue += 7;
+            cmpone.nfileValue += 13;
+         } else if(data['cnum']==0) {
+            cmpone.nfileValue += 20;
+      } else {
+         console.log('-1');
+      }   
          var rtotal = 0;
          
      for (var i = 1; i <= 5; i++) {
@@ -211,7 +251,7 @@
    },
    sendData2() {   
        console.log("제발2")
-       
+       let cmptwo = this;
     axios.get(this._baseUrl + 'survey/parttwo/surveytwo', {
        params: { 
           onum: this.oldnum2,
@@ -221,58 +261,37 @@
     .then(function (response) {
        var data = response.data;
        var values = Object.values(data);
-       var eoldValue = Number($('#efile').attr("value"));
-       var ioldValue = Number($('#ifile').attr("value"));
-       
        if (data['onum'] == 3) {
-          console.log('onum3');
-          var eold = eoldValue - 20;
-          $('#efile').attr("value",eold);
-       } else if (data['onum'] == 2) {
-          console.log('onum2');
-          var eold = eoldValue - 13;
-          $('#efile').attr("value",eold);
-          var iold = ioldValue - 7;
-          $('#ifile').attr("value",iold);
-       } else if (data['onum'] == 1) {
-          console.log('onum1');
-          var eold = eoldValue - 7;
-          $('#efile').attr("value",eold);
-          var iold = ioldValue - 13;
-          $('#ifile').attr("value",iold);
-       } else if (data['onum'] == 0) {
-          console.log('onum0');
-          var iold = ioldValue - 20;
-          $('#ifile').attr("value",iold);
-       } else {
-          console.log('onum-1');
-       }
- 
-       var eold = Number($('#efile').attr("value"));
-       var iold = Number($('#ifile').attr("value"));
- 
-       if(data['cnum']==3) {
-                 var number = eold + 20;
-                 $('#efile').attr("value",number);
-             } else if(data['cnum']==2) {
-                 var number = eold + 13;
-                 $('#efile').attr("value",number);
-                 var number = iold + 7;
-                 $('#ifile').attr("value",number);
-             } else if(data['cnum']==1) {
-                 var number = eold + 7;
-                 $('#efile').attr("value",number);
-                 var number = iold + 13;
-                 $('#ifile').attr("value",number);
-         
-             } else if(data['cnum']==0) {
-                 var number = iold + 20;
-                 $('#ifile').attr("value",number);
-         } else {
-             console.log('-1');
-         }	
+         console.log('onum3');
+         cmptwo.sfileValue -= 20;
+      } else if (data['onum'] == 2) {
+         console.log('onum2');
+         cmptwo.sfileValue -= 13;
+         cmptwo.nfileValue -= 7;
+      } else if (data['onum'] == 1) {
+         console.log('onum1');
+         cmptwo.sfileValue -= 7;
+         cmptwo.nfileValue -= 13;
+      } else if (data['onum'] == 0) {
+         console.log('onum0');
+         cmptwo.nfileValue -= 20;
+      } else {
+         console.log('onum-1');
+      }
 
-        
+      if(data['cnum']==3) {
+            cmptwo.sfileValue += 20;
+         } else if(data['cnum']==2) {
+            cmptwo.sfileValue += 13;
+            cmptwo.nfileValue += 7;
+         } else if(data['cnum']==1) {
+            cmptwo.sfileValue += 7;
+            cmptwo.nfileValue += 13;
+         } else if(data['cnum']==0) {
+            cmptwo.nfileValue += 20;
+      } else {
+         console.log('-1');
+      }   
          var rtotal = 0;
  
      for (var i = 1; i <= 5; i++) {
@@ -295,7 +314,7 @@
    },
    sendData3() {   
        console.log("제발3")
-       
+       let cmpthree = this;
     axios.get(this._baseUrl + 'survey/parttwo/surveytwo', {
        params: { 
           onum: this.oldnum3,
@@ -305,56 +324,38 @@
     .then(function (response) {
        var data = response.data;
        var values = Object.values(data);
-       var eoldValue = Number($('#efile').attr("value"));
-       var ioldValue = Number($('#ifile').attr("value"));
-       
        if (data['onum'] == 3) {
-          console.log('onum3');
-          var eold = eoldValue - 20;
-          $('#efile').attr("value",eold);
-       } else if (data['onum'] == 2) {
-          console.log('onum2');
-          var eold = eoldValue - 13;
-          $('#efile').attr("value",eold);
-          var iold = ioldValue - 7;
-          $('#ifile').attr("value",iold);
-       } else if (data['onum'] == 1) {
-          console.log('onum1');
-          var eold = eoldValue - 7;
-          $('#efile').attr("value",eold);
-          var iold = ioldValue - 13;
-          $('#ifile').attr("value",iold);
-       } else if (data['onum'] == 0) {
-          console.log('onum0');
-          var iold = ioldValue - 20;
-          $('#ifile').attr("value",iold);
-       } else {
-          console.log('onum-1');
-       }
- 
-       var eold = Number($('#efile').attr("value"));
-       var iold = Number($('#ifile').attr("value"));
- 
-       if(data['cnum']==3) {
-                 var number = eold + 20;
-                 $('#efile').attr("value",number);
-             } else if(data['cnum']==2) {
-                 var number = eold + 13;
-                 $('#efile').attr("value",number);
-                 var number = iold + 7;
-                 $('#ifile').attr("value",number);
-             } else if(data['cnum']==1) {
-                 var number = eold + 7;
-                 $('#efile').attr("value",number);
-                 var number = iold + 13;
-                 $('#ifile').attr("value",number);
-         
-             } else if(data['cnum']==0) {
-                 var number = iold + 20;
-                 $('#ifile').attr("value",number);
-         } else {
-             console.log('-1');
-         }	
+         console.log('onum3');
+         cmpthree.sfileValue -= 20;
+      } else if (data['onum'] == 2) {
+         console.log('onum2');
+         cmpthree.sfileValue -= 13;
+         cmpthree.nfileValue -= 7;
+      } else if (data['onum'] == 1) {
+         console.log('onum1');
+         cmpthree.sfileValue -= 7;
+         cmpthree.nfileValue -= 13;
+      } else if (data['onum'] == 0) {
+         console.log('onum0');
+         cmpthree.nfileValue -= 20;
+      } else {
+         console.log('onum-1');
+      }
+
+      if(data['cnum']==3) {
+            cmpthree.sfileValue += 20;
+         } else if(data['cnum']==2) {
+            cmpthree.sfileValue += 13;
+            cmpthree.nfileValue += 7;
+         } else if(data['cnum']==1) {
+            cmpthree.sfileValue += 7;
+            cmpthree.nfileValue += 13;
+         } else if(data['cnum']==0) {
+            cmpthree.nfileValue += 20;
+      } else {
+         console.log('-1');
+      }   
+
          var rtotal = 0;
  
      for (var i = 1; i <= 5; i++) {
@@ -377,7 +378,7 @@
    },
    sendData4() {   
        console.log("제발4")
-       
+       let cmpfour = this;
     axios.get(this._baseUrl + 'survey/parttwo/surveytwo', {
        params: { 
           onum: this.oldnum4,
@@ -387,56 +388,38 @@
     .then(function (response) {
        var data = response.data;
        var values = Object.values(data);
-       var eoldValue = Number($('#efile').attr("value"));
-       var ioldValue = Number($('#ifile').attr("value"));
-       
        if (data['onum'] == 3) {
-          console.log('onum3');
-          var eold = eoldValue - 20;
-          $('#efile').attr("value",eold);
-       } else if (data['onum'] == 2) {
-          console.log('onum2');
-          var eold = eoldValue - 13;
-          $('#efile').attr("value",eold);
-          var iold = ioldValue - 7;
-          $('#ifile').attr("value",iold);
-       } else if (data['onum'] == 1) {
-          console.log('onum1');
-          var eold = eoldValue - 7;
-          $('#efile').attr("value",eold);
-          var iold = ioldValue - 13;
-          $('#ifile').attr("value",iold);
-       } else if (data['onum'] == 0) {
-          console.log('onum0');
-          var iold = ioldValue - 20;
-          $('#ifile').attr("value",iold);
-       } else {
-          console.log('onum-1');
-       }
- 
-       var eold = Number($('#efile').attr("value"));
-       var iold = Number($('#ifile').attr("value"));
- 
-       if(data['cnum']==3) {
-                 var number = eold + 20;
-                 $('#efile').attr("value",number);
-             } else if(data['cnum']==2) {
-                 var number = eold + 13;
-                 $('#efile').attr("value",number);
-                 var number = iold + 7;
-                 $('#ifile').attr("value",number);
-             } else if(data['cnum']==1) {
-                 var number = eold + 7;
-                 $('#efile').attr("value",number);
-                 var number = iold + 13;
-                 $('#ifile').attr("value",number);
-         
-             } else if(data['cnum']==0) {
-                 var number = iold + 20;
-                 $('#ifile').attr("value",number);
-         } else {
-             console.log('-1');
-         }	
+         console.log('onum3');
+         cmpfour.sfileValue -= 20;
+      } else if (data['onum'] == 2) {
+         console.log('onum2');
+         cmpfour.sfileValue -= 13;
+         cmpfour.nfileValue -= 7;
+      } else if (data['onum'] == 1) {
+         console.log('onum1');
+         cmpfour.sfileValue -= 7;
+         cmpfour.nfileValue -= 13;
+      } else if (data['onum'] == 0) {
+         console.log('onum0');
+         cmpfour.nfileValue -= 20;
+      } else {
+         console.log('onum-1');
+      }
+
+      if(data['cnum']==3) {
+            cmpfour.sfileValue += 20;
+         } else if(data['cnum']==2) {
+            cmpfour.sfileValue += 13;
+            cmpfour.nfileValue += 7;
+         } else if(data['cnum']==1) {
+            cmpfour.sfileValue += 7;
+            cmpfour.nfileValue += 13;
+         } else if(data['cnum']==0) {
+            cmpfour.nfileValue += 20;
+      } else {
+         console.log('-1');
+      }   
+
          var rtotal = 0;
  
      for (var i = 1; i <= 5; i++) {
@@ -459,7 +442,7 @@
    },
    sendData5() {   
        console.log("제발5")
-       
+       let cmpfive = this;
     axios.get(this._baseUrl + 'survey/parttwo/surveytwo', {
        params: { 
           onum: this.oldnum5,
@@ -469,56 +452,38 @@
     .then(function (response) {
        var data = response.data;
        var values = Object.values(data);
-       var eoldValue = Number($('#efile').attr("value"));
-       var ioldValue = Number($('#ifile').attr("value"));
-       
        if (data['onum'] == 3) {
-          console.log('onum3');
-          var eold = eoldValue - 20;
-          $('#efile').attr("value",eold);
-       } else if (data['onum'] == 2) {
-          console.log('onum2');
-          var eold = eoldValue - 13;
-          $('#efile').attr("value",eold);
-          var iold = ioldValue - 7;
-          $('#ifile').attr("value",iold);
-       } else if (data['onum'] == 1) {
-          console.log('onum1');
-          var eold = eoldValue - 7;
-          $('#efile').attr("value",eold);
-          var iold = ioldValue - 13;
-          $('#ifile').attr("value",iold);
-       } else if (data['onum'] == 0) {
-          console.log('onum0');
-          var iold = ioldValue - 20;
-          $('#ifile').attr("value",iold);
-       } else {
-          console.log('onum-1');
-       }
- 
-       var eold = Number($('#efile').attr("value"));
-       var iold = Number($('#ifile').attr("value"));
- 
-       if(data['cnum']==3) {
-                 var number = eold + 20;
-                 $('#efile').attr("value",number);
-             } else if(data['cnum']==2) {
-                 var number = eold + 13;
-                 $('#efile').attr("value",number);
-                 var number = iold + 7;
-                 $('#ifile').attr("value",number);
-             } else if(data['cnum']==1) {
-                 var number = eold + 7;
-                 $('#efile').attr("value",number);
-                 var number = iold + 13;
-                 $('#ifile').attr("value",number);
-         
-             } else if(data['cnum']==0) {
-                 var number = iold + 20;
-                 $('#ifile').attr("value",number);
-         } else {
-             console.log('-1');
-         }	
+         console.log('onum3');
+         cmpfive.sfileValue -= 20;
+      } else if (data['onum'] == 2) {
+         console.log('onum2');
+         cmpfive.sfileValue -= 13;
+         cmpfive.nfileValue -= 7;
+      } else if (data['onum'] == 1) {
+         console.log('onum1');
+         cmpfive.sfileValue -= 7;
+         cmpfive.nfileValue -= 13;
+      } else if (data['onum'] == 0) {
+         console.log('onum0');
+         cmpfive.nfileValue -= 20;
+      } else {
+         console.log('onum-1');
+      }
+
+      if(data['cnum']==3) {
+            cmpfive.sfileValue += 20;
+         } else if(data['cnum']==2) {
+            cmpfive.sfileValue += 13;
+            cmpfive.nfileValue += 7;
+         } else if(data['cnum']==1) {
+            cmpfive.sfileValue += 7;
+            cmpfive.nfileValue += 13;
+         } else if(data['cnum']==0) {
+            cmpfive.nfileValue += 20;
+      } else {
+         console.log('-1');
+      }   
+
          var rtotal = 0;
  
      for (var i = 1; i <= 5; i++) {
@@ -541,7 +506,13 @@
    },
    sbuttontwo() {
     console.log("제출2")
-       
+    sessionStorage.setItem('myRadiosn1', this.myRadio1);
+    sessionStorage.setItem('myRadiosn2', this.myRadio2);
+    sessionStorage.setItem('myRadiosn3', this.myRadio3);
+    sessionStorage.setItem('myRadiosn4', this.myRadio4);
+    sessionStorage.setItem('myRadiosn5', this.myRadio5);
+    sessionStorage.setItem('sfileValue', this.sfileValue);
+    sessionStorage.setItem('nfileValue', this.nfileValue);   
     axios.get(this._baseUrl + 'survey/parttwo/sbuttontwo', {
        params: { 
               qone: this.changenum1,
@@ -558,12 +529,29 @@
    }).catch(function (error) {
     console.log(error);
    })
- }}}
- 
- 
+ },
+ backbuttontwo() {
+    console.log("백2")
+   //  sessionStorage.removeItem("myRadiosn1");
+   // sessionStorage.removeItem("myRadiosn2");
+   // sessionStorage.removeItem("myRadiosn3");
+   // sessionStorage.removeItem("myRadiosn4");
+   // sessionStorage.removeItem("myRadiosn5");
+   // sessionStorage.removeItem("sfileValue");
+   // sessionStorage.removeItem("nfileValue");
+   //  sessionStorage.setItem('myRadiosn1', this.myRadio1);
+   // sessionStorage.setItem('myRadiosn2', this.myRadio2);
+   // sessionStorage.setItem('myRadiosn3', this.myRadio3);
+   // sessionStorage.setItem('myRadiosn4', this.myRadio4);
+   // sessionStorage.setItem('myRadiosn5', this.myRadio5);
+   //  sessionStorage.setItem('sfileValue', this.sfileValue);
+   //  sessionStorage.setItem('nfileValue', this.nfileValue); 
+
+ }
+}}
+
  </script>  
- 
- <style scoped>
+ <style>
  body {
         font-family: 'Arial', sans-serif;
         margin: 0;
@@ -656,6 +644,5 @@
  
  #next2{
  display:none;}
-
  
  </style>
