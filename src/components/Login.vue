@@ -5,13 +5,22 @@
 		  <h3 style="font-family:courier">모두 덤벼라!</h3>
 		  <h1>MBTI 미니 대전</h1>
 	  </div>
-    <img class="main" src="https://i.imgur.com/y4HuMAZ.jpeg">
-    <br>
-    <a @click="kakaoLogin()">
-      <img src="../assets/kakao_login_medium_narrow.png"
-        width="200">
-    </a>
+    <!-- <div class="kakaologin">
+      <img class="main" src="https://i.imgur.com/y4HuMAZ.jpeg">
+      <br>
+      <a class="kakaoa" @click="kakaoLogin()">
+      <img class="kakaoimg" src="../assets/kakao_login_medium_narrow.png">
+      </a>
+    </div>
+  </div> -->
+  <img class="main" src="https://i.imgur.com/y4HuMAZ.jpeg">
+  <div class="kakaologin">
+    <a class="kakaoa" @click="kakaoLogin()">
+    <img class="kakaoimg" src="../assets/kakao_login_medium_narrow.png" style="max-width: 100%; height: auto;">
+  </a>
   </div>
+</div>
+
 </template>
 
 <script>
@@ -77,21 +86,29 @@ export default {
     border: 1px solid #d8d8d8;
     width: 45%;
     margin: 45px;
-    /* box-shadow: 0px .5px 1px #d8d8d8; */
+    box-shadow: 0px .5px 1px #d8d8d8;
   }
-/* h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-div{ width: 200px; height:40px; background-color:#fdd101; color:white; display:flex; align-items: center; justify-content: center; cursor:pointer; } */
+  h3 {
+    margin: 40px 0 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  a.kakaoa {
+    color: #42b983;
+  }
+  div.kakaologin { 
+    /* width: 200px;  */
+    /* height:0px;  */
+    /* background-color:#fdd101;  */
+    /* color:white; display:flex;  */
+    /* align-items: center;  */
+    /* justify-content: center;  */
+    /* cursor:pointer;  */
+  }
 </style>

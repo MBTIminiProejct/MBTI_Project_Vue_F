@@ -1,5 +1,5 @@
 <template>
-	<div class="mypage">
+	<div class="matchroom">
 		<div class="left"><MatchRoomMyCharacter/></div>
 		<div class="right"><MatchRoomOtherCharacter/></div>
 		<div><MatchRoomCenterVue></MatchRoomCenterVue></div>

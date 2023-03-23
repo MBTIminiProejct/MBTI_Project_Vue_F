@@ -3,7 +3,7 @@
         <h3>메인화면</h3><br><br>
         <img src='https://i.imgur.com/oMQzKAv.jpg'><br><br>
              <template v-if="this.$store.getters.isExist>1">
-                <button @click="deleteCharacter()">캐릭터 삭제하기</button>
+                <!-- <button @click="deleteCharacter()">캐릭터 삭제하기</button> -->
                   <button id="clicktwo"><router-link to="/mypage">마이페이지</router-link></button>
                     <form :disabled="isDisabled">
                         <input id="clickone" type="submit" value="설문조사"><br>
@@ -12,14 +12,14 @@
             <template v-else>
                     <!--<router-link to="/survey/partone"><input id="clickone" type="submit" value="설문조사"><br></router-link>-->
                                     
-                    <button @click="showModal = true">설문조사</button>
+                    <button class="btn-primary" @click="showModal = true">설문조사</button>
                         <Modal v-if="showModal" @close-modal="showModal = false">
                     <!-- <button @click="$emit('close-modal')">Close Modal</button> -->
-                    </Modal>                <button disabled="disabled">캐릭터 삭제하기</button><br>
-                <button disabled="disabled">마이페이지</button><br>
+                    </Modal>                <button disabled="disabled" class="btn-secondary">캐릭터 삭제하기</button><br>
+                <button class="btn-primary" disabled="disabled">마이페이지</button><br>
             </template>
-            <button id="deleteUser" @click="deleteUser()">회원탈퇴</button>
-        <vue-confirm-dialog></vue-confirm-dialog>
+            <!-- <button class="btn-secondary" id="deleteUser" @click="deleteUser()">회원탈퇴</button> -->
+          <vue-confirm-dialog></vue-confirm-dialog>
         <router-view></router-view>
     </div>
 </template>
@@ -109,6 +109,44 @@ img{
     width: 300px;
     height: 300px;
 }
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap');
+
+.btn-primary {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.2s;
+}
+
+  
+  .btn-secondary {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.2s;
+  }
 
 </style>
 
