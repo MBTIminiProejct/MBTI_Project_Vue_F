@@ -26,17 +26,27 @@ export default {
     },
     methods:{
 		perpBattle() {
-			axios.get(this._baseUrl + "mypage/battleuser", {
+      let tmp = this;
+			axios.get(tmp._baseUrl + "mypage/battleuser", {
         			params : {
-          			battleUserNum : this.$store.getters.getOtherUserNum
+          			battleUserNum : tmp.$store.getters.getOtherUserNum
         			}
 				})
 				.then(result=> {
-						this.$store.commit("setCompetionUserInfo",JSON.parse(result.data.competionUserInfo));
-						this.$store.commit("setCompetionCharacterInfo",JSON.parse(result.data.competionCharacterInfo));
-						this.$router.push({
+          if (result.data.nonUser == "nonUser") {
+						alert("존재하지않는 유저 번호입니다.")
+					} else {
+						tmp.$store.commit("setCompetionUserInfo",JSON.parse(result.data.competionUserInfo));
+						tmp.$store.commit("setCompetionCharacterInfo",JSON.parse(result.data.competionCharacterInfo));
+            console.log(tmp.$store.getters.getBattleUserAccept)
+            if (tmp.$store.getters.getBattleUserAccept == "대결허용") {
+              tmp.$router.push({
 								name : "matchroom"
 						})
+            } else {
+              alert("해당유저의 대결허용이 OFF 상태입니다")
+            }
+					}
 				})
 				.catch(function () {
 					alert("실패")
