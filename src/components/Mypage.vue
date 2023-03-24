@@ -57,7 +57,8 @@
     </div>
     <br>
     <div style="display: flex; justify-content: space-between;">
-      <button class= "btn-change" @click="changeAccpet()" style="margin-right: 150px;">대결허용 상태변경</button>
+      <button class= "btn-change" @click="changeAccpet()" style="margin-right: 30px;">대결허용 상태변경</button>
+      <button class= "btn-change" @click="goMyPage()">MainPage로 이동</button>
       <button class="btn-secondary" @click="deleteCharacter()" style="margin-left: 300px;">캐릭터 삭제하기</button>
       <button class="btn-secondary" id="deleteUser" @click="deleteUser()" style="margin-left: 20px;">회원탈퇴</button>
     <vue-confirm-dialog></vue-confirm-dialog>
@@ -183,6 +184,9 @@
                 alert("변경실패 관리자에게 문의해보세요")
               });
               },
+              goMyPage() {
+            this.$router.push({path:'main'});
+        }
             
     },
         

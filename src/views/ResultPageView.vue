@@ -57,12 +57,12 @@ export default {
     methods:{
         sendLinkDefault() {
                 console.log("공유하기 버튼 클릭");
-                // Kakao.init('14ff9a0b93923e6ee771ed79828eb683');
+                
                 Kakao.Link.sendDefault({
                     objectType: 'feed',
                     content: {
                         title: 'MBTI결과공유',
-                        description: '친구의 MBTI결과를 확인해보세요',
+                        description: '저의 유저 번호는 '+this.$store.getters.getUserInfo.userNum + '입니다. 설문에 참여하여 대결을 시작해보세요.',
                         imageUrl:
                             this.$store.state.mbtiresult.mbtiimgurl,
                         link: {
@@ -102,7 +102,4 @@ export default {
 		margin-left: auto;
 		margin-right: auto;
 	}
-    li {
-        text-align: left;
-    }
 </style>
