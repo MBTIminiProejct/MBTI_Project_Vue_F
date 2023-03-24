@@ -526,7 +526,6 @@
     })
     .then(function (response) {
        var data = response.data;
-       var values = Object.values(data);
       console.log(tmp.$store.getters.getUserEmail);
    }).catch(function (error) {
     console.log(error);

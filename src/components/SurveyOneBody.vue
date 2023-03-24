@@ -528,6 +528,7 @@ if (rtotal == 5) {
              qthree: this.changenum3,
              qfour: this.changenum4,
              qfive: this.changenum5,
+             speed: this.$store.getters.getUserSpeed,
              email: this.$store.getters.getUserEmail
       }
    })
@@ -543,6 +544,7 @@ if (rtotal == 5) {
 
 
 </script>  
+
 <style scoped>
 .btn-primary {
   background-color: #4CAF50;
@@ -635,24 +637,6 @@ body {
     input[type=radio]:active {
         box-shadow: 0 0 0 2px #555;
     }
-
-#radio-previous1{
-opacity:0;} 
-
-#radio-previous2{
-opacity:0;}
-
-#radio-previous3{
-opacity:0;}
-
-#radio-previous4{
-opacity:0;}
-
-#radio-previous5{
-opacity:0;}
-
-#next1{
-display:none;}
 
 #radio-previous1{
 opacity:0;} 
