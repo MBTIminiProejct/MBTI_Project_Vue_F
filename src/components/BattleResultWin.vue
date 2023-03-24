@@ -12,32 +12,17 @@
 
 export default {
 name: 'BattleResultWin',
-// data() {
-// 	return {
-// 		battleLog 
-// 	}
-// },
-// computed: {
-// 	battleLog() {
-// 		return this.$store.state.battleloginfo.blog.replaceAll("\n", "<br/>")
-// 	}
-// }
+
 }
 
 </script>
 
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 img{
     width: 300px;
     height: 300px;
 }
-/* div.battleresultwin {
-	  text-align: left;
-} */
-/* h3 {
-	font-size: 22px;
-} */
+
 </style>
-  

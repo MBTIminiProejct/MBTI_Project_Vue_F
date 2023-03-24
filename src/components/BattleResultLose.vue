@@ -12,22 +12,12 @@
 
 export default {
 name: 'BattleResultLose',
-// data() {
-// 	return {
-// 		battleLog 
-// 	}
-// },
-// computed: {
-// 	battleLog() {
-// 		return this.$store.state.battleloginfo.blog.replaceAll("\n", "<br/>")
-// 	}
-// }
 }
 
 </script>
 
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 img{
     width: 300px;

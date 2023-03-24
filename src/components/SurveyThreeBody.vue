@@ -55,10 +55,10 @@
      </div>
      
      <div class="box8" style="font-family:verdana; text-align: center">
-     <!--<form action="/springmbti/survey/surveytwo" method="post">-->
+     
         <router-link to="/survey/parttwo"><button class="btn-primary" id="back3" @click="backbuttonthree()" >뒤로가기</button></router-link>
         <router-link to="/survey/partfour"><button class="btn-primary" id="next3" @click="sbuttonthree()" >제출</button></router-link>
-         <!--<button id="next1" type="submit" @click="sbuttonone">제출</button>-->
+        
      </div>	
      
  </body>
@@ -529,20 +529,6 @@
  },
  backbuttonthree() {
     console.log("백3")
-   //  sessionStorage.removeItem("myRadiosn1");
-   // sessionStorage.removeItem("myRadiosn2");
-   // sessionStorage.removeItem("myRadiosn3");
-   // sessionStorage.removeItem("myRadiosn4");
-   // sessionStorage.removeItem("myRadiosn5");
-   // sessionStorage.removeItem("sfileValue");
-   // sessionStorage.removeItem("nfileValue");
-   //  sessionStorage.setItem('myRadiosn1', this.myRadio1);
-   // sessionStorage.setItem('myRadiosn2', this.myRadio2);
-   // sessionStorage.setItem('myRadiosn3', this.myRadio3);
-   // sessionStorage.setItem('myRadiosn4', this.myRadio4);
-   // sessionStorage.setItem('myRadiosn5', this.myRadio5);
-   //  sessionStorage.setItem('sfileValue', this.sfileValue);
-   //  sessionStorage.setItem('nfileValue', this.nfileValue); 
 
  }
 }}

@@ -18,7 +18,6 @@ export default {
   computed: {
     isLogIn(){
      const fixedViews = ['MainView'];
-    //  'ResultPageView', 'MyPageView', 'SurveyViewOne', 'SurveyViewTwo', 'SurveyViewThree', 'SurveyViewFour', 'MatchRoomView', 'BattleResultView', 'UserPageView', 'LoadingView
       return fixedViews.includes(this.$route.name);
     }
   }

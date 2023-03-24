@@ -27,14 +27,7 @@
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* div.mycharacter {
-	text-align: left;
-}
-h1 {
-	font-size: 30px;
-	font-weight: bold !important;
-} */
+
 </style>
   

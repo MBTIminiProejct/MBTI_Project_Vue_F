@@ -56,40 +56,6 @@ export default {
       cmp.$store.commit("setUserSpeed",1); 
       this.$router.push('/survey/partone'); 
     } 
-      // cmp.$store.commit('setUserSpeed',2);
-      
-
-      // this.$router.push('/survey/partone'); 
-      // axios.get(this._baseUrl + 'survey/fast',{
-      //   params: {
-      //     fast : 2
-      //   }
-      // })
-      // .then(function (response) {
-      //   var data = response.data;
-      //   this.$store.commit("setUserSpeed",2);
-      //   console.log(tmp.$store.userSpeed);
-      // })
-      // .catch(function (error) {
-      //   console.log(error);
-      // })
-         
-
-        // } else { 
-        //   cmp.$store.commit("setUserSpeed",1); 
-        //   this.$router.push('/survey/partone'); 
-      //     axios.get(this._baseUrl +'survey/slow',{
-      //   params: {
-      //     slow : 1
-      //   }
-      // })
-      // .then(function (response) {
-      //   var data = response.data;
-      //   tmp.$store.commit("setUserSpeed",1);
-      // })
-      // .catch(function (error) {
-      //   console.log(error);
-      // })
       
     },
     myfunccancel() {

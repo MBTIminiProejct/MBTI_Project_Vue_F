@@ -42,7 +42,6 @@ export default {
     userPage(index) {
       let cmd =this;
       this.index = index
-      //console.log("제발");
       axios.get(this._baseUrl + "userpage/readUserPage" , {
       params: { 
         index: index
@@ -50,12 +49,9 @@ export default {
    })
    .then(function (response) {
       console.log(response.data);
-      //let cmd =this;
-      // console.log(response.data.mbtiImg);
-      // cmd.$store.commit("setAnotherUserInfo",response.data['userInfo'])
-      // cmd.$store.commit("setAnotherUserInfo",response.data['mbtiImg'])
+      
       cmd.$store.commit("setAnotherUserInfo",response.data)
-      //let cmc =this;
+      
         axios.get('http://192.168.0.195:8085/springmbti/userpage/readMbtiPage' , {
             params: {
               index: cmd.index
